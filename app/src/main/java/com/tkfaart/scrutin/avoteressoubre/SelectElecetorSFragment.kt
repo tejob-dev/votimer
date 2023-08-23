@@ -57,7 +57,7 @@ class SelectElecetorSFragment : Fragment() {
         zoneId = prf!!.getString("zoneId")
         val json = loadJSONFromAsset("lieuvote-sb.json", requireActivity())
         if (json != null) {
-            listLV = parseJsonToElectoratModel(json)
+            listLV = parseJsonToLVModel(json)
             // Now you have a list of Person objects
         }
 
@@ -78,8 +78,8 @@ class SelectElecetorSFragment : Fragment() {
 //            }
 //        }
 
-        _binding!!.selectMultiElecteur.setTitle("Choix du Lieu de Vote")
-        _binding!!.selectMultiElecteur.setPositiveButton("Fermer")
+        _binding!!.selectMLieuDeVote.setTitle("Choix du Lieu de Vote")
+        _binding!!.selectMLieuDeVote.setPositiveButton("Fermer")
         val listNames = mutableListOf<String>()
         listLV.map {
             listNames.add("${it.libel}")
@@ -87,8 +87,8 @@ class SelectElecetorSFragment : Fragment() {
         Log.d("Electorat ", listNames.toString())
         newListElector!!.clear();
         val personsAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, listNames)
-        _binding!!.selectMultiElecteur.adapter = personsAdapter
-        _binding!!.selectMultiElecteur.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        _binding!!.selectMLieuDeVote.adapter = personsAdapter
+        _binding!!.selectMLieuDeVote.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(adapterView: AdapterView<*>, view: View, position: Int, l: Long) {
 
                 val lvModel = listLV[position]
@@ -163,7 +163,7 @@ class SelectElecetorSFragment : Fragment() {
             .commit()
     }
 
-    fun parseJsonToElectoratModel(json: String): List<LieuVoteModel> {
+    fun parseJsonToLVModel(json: String): List<LieuVoteModel> {
         val lieuv = mutableListOf<LieuVoteModel>()
         try {
             val jsonObject = JSONObject(json)

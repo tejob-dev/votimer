@@ -79,7 +79,7 @@ class Commons {
             return formattedDateTime
         }
 
-        val iS_RESP: Boolean = false
+        val iS_RESP: Boolean = true
         val IS_RESULT: Boolean = true //to define si c'est pour RESULTAT
         var phoneNumber = "+2250565362426"
 

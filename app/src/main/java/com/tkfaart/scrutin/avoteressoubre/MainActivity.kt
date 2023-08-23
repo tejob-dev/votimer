@@ -1,12 +1,14 @@
 package com.tkfaart.scrutin.avoteressoubre
 
 import android.Manifest
+import android.content.res.ColorStateList
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentManager
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -30,6 +32,9 @@ class MainActivity : AppCompatActivity() {
         //val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
         val modelName = Build.MODEL
         val prf = PrefManager(this)
+
+        val colorStateList = ColorStateList.valueOf(ContextCompat.getColor(this, android.R.color.white))
+        fabAlerte!!.imageTintList = colorStateList
 
         fabAlerte!!.setOnClickListener{
             val ag_tel = prf.getString("ag_tel")
@@ -101,72 +106,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }, 5000)
         }else{
-//            val json = Commons.loadJSONFromAsset(Commons.ElectorJsonName, this)
-//            if (json != null) {
-//                var persons = parseJsonToElectoratModel(json)
-//                // Now you have a list of Person objects
-//                if(Commons.IS_RESULT){
-//                    Handler().postDelayed(Runnable {
-//                        run {
-//                            fabAlerte?.visibility = View.VISIBLE
-//                            supportFragmentManager.beginTransaction()
-//                                .setCustomAnimations(R.anim.slide_in_from_right, R.anim.slide_out_to_left,
-//                                    R.anim.slide_in_from_left, R.anim.slide_out_to_right)
-//                                .replace(R.id.fragment_container, SelectForResultFragment())
-//                                .commit()
-//                        }
-//                    }, 5000)
-//                }else{
-//                    if(persons.size == 0){
-//                        Handler().postDelayed(Runnable {
-//                            run {
-//                                fabAlerte?.visibility = View.VISIBLE
-//                                supportFragmentManager.beginTransaction()
-//                                    .setCustomAnimations(R.anim.slide_in_from_right, R.anim.slide_out_to_left,
-//                                        R.anim.slide_in_from_left, R.anim.slide_out_to_right)
-//                                    .replace(R.id.fragment_container, ManageSWlFragment())
-//                                    .commit()
-//                            }
-//                        }, 5000)
-//                    }else{
-//                        Handler().postDelayed(Runnable {
-//                            run {
-//                                fabAlerte?.visibility = View.VISIBLE
-//                                supportFragmentManager.beginTransaction()
-//                                    .setCustomAnimations(R.anim.slide_in_from_right, R.anim.slide_out_to_left,
-//                                        R.anim.slide_in_from_left, R.anim.slide_out_to_right)
-//                                    .replace(R.id.fragment_container, ManageWlFragment())
-//                                    .commit()
-//                            }
-//                        }, 5000)
-//                    }
-//                }
-//
-//            }else{
-//                if(Commons.IS_RESULT){
-//                    Handler().postDelayed(Runnable {
-//                        run {
-//                            fabAlerte?.visibility = View.VISIBLE
-//                            supportFragmentManager.beginTransaction()
-//                                .setCustomAnimations(R.anim.slide_in_from_right, R.anim.slide_out_to_left,
-//                                    R.anim.slide_in_from_left, R.anim.slide_out_to_right)
-//                                .replace(R.id.fragment_container, SelectForResultFragment())
-//                                .commit()
-//                        }
-//                    }, 5000)
-//                }else{
-//                    Handler().postDelayed(Runnable {
-//                        run {
-//                            fabAlerte?.visibility = View.VISIBLE
-//                            supportFragmentManager.beginTransaction()
-//                                .setCustomAnimations(R.anim.slide_in_from_right, R.anim.slide_out_to_left,
-//                                    R.anim.slide_in_from_left, R.anim.slide_out_to_right)
-//                                .replace(R.id.fragment_container, ManageWlFragment())
-//                                .commit()
-//                        }
-//                    }, 5000)
-//                }
-//            }
 
                 Handler().postDelayed(Runnable {
                     run {

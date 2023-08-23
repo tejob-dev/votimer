@@ -71,7 +71,8 @@
 			"quartier_id": "3",
 			"imported": "0",
 			"created_at": null,
-			"updated_at": "2023-06-02 16:33:23"
+			"updated_at": "2023-06-02 16:33:23",
+			"zoneid": "1"
 		},
 		{
 			"id": "7",
@@ -516,7 +517,8 @@
 			"quartier_id": null,
 			"imported": "0",
 			"created_at": "2023-05-29 19:29:33",
-			"updated_at": "2023-05-29 19:29:33"
+			"updated_at": "2023-05-29 19:29:33",
+			"zoneid": "1"
 		}
 	]
 }

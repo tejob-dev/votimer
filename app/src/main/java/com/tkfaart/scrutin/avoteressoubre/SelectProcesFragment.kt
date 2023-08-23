@@ -115,36 +115,38 @@ class SelectProcesFragment : Fragment() {
 //            setToListElector.addAll(it.toList())
 //        }
 
-        _binding!!.selectLieuVote.setTitle("Choix du lieu de vote")
-        _binding!!.selectBureauVote.setTitle("Choix du bureau de vote")
-        _binding!!.selectLieuVote.setPositiveButton("Fermer")
-        _binding!!.selectBureauVote.setPositiveButton("Fermer")
-        listNamesLV = mutableListOf<String>()
         listNamesBV = mutableListOf<String>()
-        lieuvote.map {
-            listNamesLV!!.add("${it.libel}")
-        }
-
-        Log.d("LV ", listNamesLV.toString())
-
-        val personsAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line,
-            listNamesLV!!
-        )
-        _binding!!.selectLieuVote.adapter = personsAdapter
-        _binding!!.selectLieuVote.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(adapterView: AdapterView<*>, view: View, position: Int, l: Long) {
-
-                val lvModel = lieuvote[position]
-                Log.e(this.javaClass.simpleName, "Counter lv "+lvModel.toString())
-                currentLV = "${lvModel.id}"
-                currentLVName = "${lvModel.libel}"
-
-                setUpBvSpinner(currentLV)
-            }
-
-            override fun onNothingSelected(arg0: AdapterView<*>) {
-            }
-        }
+        val currentLV = prf!!.getString("user_lv")
+        setUpBvSpinner(currentLV)
+//        _binding!!.selectLieuVote.setTitle("Choix du lieu de vote")
+//        _binding!!.selectBureauVote.setTitle("Choix du bureau de vote")
+//        _binding!!.selectLieuVote.setPositiveButton("Fermer")
+//        _binding!!.selectBureauVote.setPositiveButton("Fermer")
+//        listNamesLV = mutableListOf<String>()
+       // listNamesBV = mutableListOf<String>()
+//        lieuvote.map {
+//            listNamesLV!!.add("${it.libel}")
+//        }
+//
+//        Log.d("LV ", listNamesLV.toString())
+//
+//        val personsAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line,
+//            listNamesLV!!
+//        )
+//        _binding!!.selectLieuVote.adapter = personsAdapter
+//        _binding!!.selectLieuVote.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+//            override fun onItemSelected(adapterView: AdapterView<*>, view: View, position: Int, l: Long) {
+//
+//                val lvModel = lieuvote[position]
+//                Log.e(this.javaClass.simpleName, "Counter lv "+lvModel.toString())
+//                currentLV = "${lvModel.id}"
+//                currentLVName = "${lvModel.libel}"
+//
+//            }
+//
+//            override fun onNothingSelected(arg0: AdapterView<*>) {
+//            }
+//        }
 
 
         _binding?.btnNext?.setOnClickListener {
@@ -269,11 +271,11 @@ class SelectProcesFragment : Fragment() {
     private fun dialogPickerPhoto() {
         val dialogPicker = AlertDialog.Builder(requireContext())
             .setMessage("Source de la photo ?")
-            .setPositiveButton("Camera") { dialog, _ ->
+            .setPositiveButton("Avec la caméra") { dialog, _ ->
                 dialog.dismiss()
                 dispatchTakePictureIntent()
             }
-            .setNegativeButton("Gallerie") { dialog, _ ->
+            .setNegativeButton("Dans le téléphone") { dialog, _ ->
                 dialog.dismiss()
                 showFileChooser(11)
             }

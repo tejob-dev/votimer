@@ -5,11 +5,14 @@ import android.os.Handler
 import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.blankj.utilcode.util.LogUtils
 import com.tkfaart.scrutin.avoteressoubre.apiservice.ApiClient
 import com.tkfaart.scrutin.avoteressoubre.databinding.FragmentOptionBinding
 import com.tkfaart.scrutin.avoteressoubre.models.ImagePvModel
@@ -87,8 +90,23 @@ class OptionFragment : Fragment() {
         visible = true
         prf = PrefManager(requireContext())
 
-        _binding!!.btnSuivi.setOnClickListener{
+        if( prf!!.getString("user_lv").isNullOrBlank()){
+            requireActivity().supportFragmentManager.beginTransaction()
+                .setCustomAnimations(
+                    com.tkfaart.scrutin.avoteressoubre.R.anim.slide_in_from_right, com.tkfaart.scrutin.avoteressoubre.R.anim.slide_out_to_left,
+                    com.tkfaart.scrutin.avoteressoubre.R.anim.slide_in_from_left, com.tkfaart.scrutin.avoteressoubre.R.anim.slide_out_to_right)
+                .replace(com.tkfaart.scrutin.avoteressoubre.R.id.fragment_container, RegisterElectorFragment())
+                .commit()
+        }
 
+        _binding!!.btnSuivi.setOnClickListener{
+            requireActivity().supportFragmentManager.beginTransaction()
+                .setCustomAnimations(
+                    R.anim.slide_in_from_right, R.anim.slide_out_to_left,
+                    R.anim.slide_in_from_left, R.anim.slide_out_to_right
+                )
+                .replace(R.id.fragment_container, SelectForSuiviFragment())
+                .commit()
         }
 
         _binding!!.btnAvote.setOnClickListener{
@@ -133,6 +151,28 @@ class OptionFragment : Fragment() {
                     R.anim.slide_in_from_left, R.anim.slide_out_to_right)
                 .replace(R.id.fragment_container, SelectForResultFragment())
                 .commit()
+        }
+
+        if(!Commons.iS_RESP){
+            _binding!!.btnAvote.visibility = VISIBLE
+            _binding!!.btnResultat.visibility = GONE
+            _binding!!.btnPvs.visibility = GONE
+            _binding!!.btnSuivi.visibility = GONE
+        }else{
+            binding!!.btnAvote.visibility = GONE
+            _binding!!.btnResultat.visibility = VISIBLE
+            _binding!!.btnPvs.visibility = VISIBLE
+            _binding!!.btnSuivi.visibility = VISIBLE
+        }
+
+        if(Commons.iS_RESP){
+            if(prf!!.getString("zoneId").isNullOrBlank()){
+                requireActivity().supportFragmentManager.beginTransaction()
+                    .setCustomAnimations(R.anim.slide_in_from_right, R.anim.slide_out_to_left,
+                        R.anim.slide_in_from_left, R.anim.slide_out_to_right)
+                    .replace(R.id.fragment_container, RegisterElectorFragment())
+                    .commit()
+            }
         }
 
         Commons.checkIfNetworkAvailaible{

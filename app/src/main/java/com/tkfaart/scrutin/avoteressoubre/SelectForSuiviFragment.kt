@@ -1,6 +1,7 @@
 package com.tkfaart.scrutin.avoteressoubre
 
 import android.R
+import android.graphics.Paint.Style
 import android.graphics.Typeface
 import android.os.Bundle
 import android.util.Log
@@ -14,10 +15,8 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.blankj.utilcode.util.LogUtils
-import com.bumptech.glide.Glide
-import com.bumptech.glide.RequestManager
 //import com.androidbuts.multispinnerfilter.KeyPairBoolData
-import com.tkfaart.scrutin.avoteressoubre.databinding.FragmentVotantSenderBinding
+import com.tkfaart.scrutin.avoteressoubre.databinding.FragmentSuivisBinding
 import com.tkfaart.scrutin.avoteressoubre.models.CommonModel
 import com.tkfaart.scrutin.avoteressoubre.models.ElectoratModel
 import com.tkfaart.scrutin.avoteressoubre.util.Commons
@@ -26,10 +25,9 @@ import com.tkfaart.scrutin.avoteressoubre.util.PrefManager
 import org.json.JSONObject
 
 
-class SelectForResultFragment : Fragment() {
+class SelectForSuiviFragment : Fragment() {
 
 
-    private var glide: RequestManager? = null
     private var currentLVName: String = ""
     private var currentBVName: String = ""
     private var listNamesLV : MutableList<String>?  = null
@@ -45,7 +43,7 @@ class SelectForResultFragment : Fragment() {
     private var listElector: MutableList<ElectoratModel>? = null
     private var newListElector: MutableList<ElectoratModel>? = null
     private val keyList: MutableList<String> = mutableListOf()
-    private var _binding: FragmentVotantSenderBinding? = null
+    private var _binding: FragmentSuivisBinding? = null
     private var prf: PrefManager? = null
 
     override fun onCreateView(
@@ -54,7 +52,7 @@ class SelectForResultFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentVotantSenderBinding.inflate(inflater, container, false)
+        _binding = FragmentSuivisBinding.inflate(inflater, container, false)
         return _binding!!.root
     }
 
@@ -86,7 +84,7 @@ class SelectForResultFragment : Fragment() {
 //        }
 
         val currLV = prf!!.getString("user_lv")
-
+        LogUtils.d(lieuvote)
         lieuvote.forEach {
             if(it.id?.toInt() == currLV.toInt()) {
                 currentLVName = it.libel.toString()
@@ -95,13 +93,23 @@ class SelectForResultFragment : Fragment() {
         }
         LogUtils.d(currentLVName+" "+currentLV)
         listNamesBV = mutableListOf<String>()
-        setUpBvSpinner(currLV)
+
+        if(currLV.isNullOrBlank() != true){
+            setUpBvSpinner(currLV)
+        }else{
+            requireActivity().supportFragmentManager.beginTransaction()
+                .setCustomAnimations(
+                    com.tkfaart.scrutin.avoteressoubre.R.anim.slide_in_from_right, com.tkfaart.scrutin.avoteressoubre.R.anim.slide_out_to_left,
+                    com.tkfaart.scrutin.avoteressoubre.R.anim.slide_in_from_left, com.tkfaart.scrutin.avoteressoubre.R.anim.slide_out_to_right)
+                .replace(com.tkfaart.scrutin.avoteressoubre.R.id.fragment_container, RegisterElectorFragment())
+                .commit()
+        }
+
 //        _binding!!.selectLieuVote.setTitle("Choix du lieu de vote")
 //        _binding!!.selectBureauVote.setTitle("Choix du bureau de vote")
 //        _binding!!.selectLieuVote.setPositiveButton("Fermer")
 //        _binding!!.selectBureauVote.setPositiveButton("Fermer")
 //        listNamesLV = mutableListOf<String>()
-        //listNamesBV = mutableListOf<String>()
 //        lieuvote.map {
 //            listNamesLV!!.add("${it.libel}")
 //        }
@@ -136,19 +144,11 @@ class SelectForResultFragment : Fragment() {
 //        }*
 
         _binding!!.votant.setText("")
-        _binding!!.bultBlanc.setText("")
-        _binding!!.bultNull.setText("")
 
         _binding?.btnNext?.setOnClickListener {
-            if(_binding?.btnNext?.text.toString().contains("suivant", ignoreCase = true)){
-                returnBackView(false)
-            }else{
-                sendInResultMessage()
-            }
+            sendInResultMessage()
         }
-        _binding?.btnRetour?.setOnClickListener {
-            returnBackView(true)
-        }
+
         _binding!!.goBack.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction()
                 .setCustomAnimations(
@@ -163,34 +163,14 @@ class SelectForResultFragment : Fragment() {
     private fun sendInResultMessage() {
         var thereNotEmpty = false
 
-        if(!currentLVName.isNullOrBlank()
-            && !currentBVName.isNullOrBlank()
+        if(  currentLVName.toString() != "" && currentBVName.toString() != ""
             && !_binding!!.votant.text.isNullOrBlank()
-            && !_binding!!.bultBlanc.text.isNullOrBlank()
-            && !_binding!!.bultNull.text.isNullOrBlank()
             ){
             thereNotEmpty = !thereNotEmpty;
         }else{
             SweetAlertDialog(requireContext(), SweetAlertDialog.WARNING_TYPE)
                 .setTitleText("Message")
                 .setContentText("Un champ ou un choix dans le premier formulaire est vide!")
-                .setConfirmText("Continuer")
-                .setConfirmClickListener { sDialog ->
-                    sDialog.dismissWithAnimation()
-                }.show()
-        }
-
-        if(!_binding!!.votantA.text.isNullOrBlank()
-            && !_binding!!.votantB.text.isNullOrBlank()
-            && !_binding!!.votantC.text.isNullOrBlank()
-            && !_binding!!.votantD.text.isNullOrBlank()
-            && !_binding!!.votantE.text.isNullOrBlank()
-        ){
-            thereNotEmpty = !thereNotEmpty;
-        }else{
-            SweetAlertDialog(requireContext(), SweetAlertDialog.WARNING_TYPE)
-                .setTitleText("Message")
-                .setContentText("Un champ dans le second formulaire est vide!")
                 .setConfirmText("Continuer")
                 .setConfirmClickListener { sDialog ->
                     sDialog.dismissWithAnimation()
@@ -204,18 +184,14 @@ class SelectForResultFragment : Fragment() {
     }
 
     private fun showAlertItem() {
-        var message = "\n------Notations------\n${currentLVName} - ${currentBVName}\nVotant: ${_binding!!.votant.text}\nBulletin Nul: ${_binding!!.bultNull.text}\nBulletin Blanc: ${_binding!!.bultBlanc.text}"
-        message += "\n------Candidats------\nRICHARD KOFFI: ${_binding!!.votantA.text}\nLASSINA TRAORE: ${_binding!!.votantB.text}\nLIGNON ZIRIGNON: ${_binding!!.votantC.text}\nPIENA COULIBALY: ${_binding!!.votantD.text}\nCLEMENTINE GOBA: ${_binding!!.votantE.text}"
-
+        var message = "${currentLVName} - ${currentBVName}\n Votant: ${_binding!!.votant.text}"
         val textView = TextView(requireActivity())
         // Set TextView attributes
         textView.layoutParams =
             LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
         textView.textSize = 15f // 25sp
-        textView.textAlignment = TextView.TEXT_ALIGNMENT_CENTER
         textView.setTypeface(null, Typeface.BOLD) // Requires appropriate import
         textView.text = "${message}"
-
         SweetAlertDialog(requireContext(), SweetAlertDialog.WARNING_TYPE)
             .setTitleText("Vérification des saisies")
             .setCustomView(textView)
@@ -231,10 +207,9 @@ class SelectForResultFragment : Fragment() {
     private fun sendMessageToSms() {
         val saveCurrDate = Commons.getDateFormat()
         val ag_tel = prf?.getString("ag_tel")
-        var message = "${Commons.CurrCodeScrut}*"+saveCurrDate+"*RES*${ag_tel}"
+        var message = "${Commons.CurrCodeScrut}*"+saveCurrDate+"*SUI*${ag_tel}"
         message += "*"
-        message += "${currentLV},${currentBV},${_binding!!.votant.text},${_binding!!.bultNull.text},${_binding!!.bultBlanc.text}*"
-        message += "indep:${_binding!!.votantA.text},rhdp:${_binding!!.votantB.text},indep2:${_binding!!.votantC.text},indep3:${_binding!!.votantD.text},pdci:${_binding!!.votantE.text}"
+        message += "${currentLV},${currentBV},${_binding!!.votant.text}*"
         Commons.smsSendMessage(message, Commons.phoneNumber, requireActivity())
         //println("message sended enc "+encode)
 
@@ -263,29 +238,10 @@ class SelectForResultFragment : Fragment() {
             .setCustomAnimations(
                 com.tkfaart.scrutin.avoteressoubre.R.anim.slide_in_from_right, com.tkfaart.scrutin.avoteressoubre.R.anim.slide_out_to_left,
                 com.tkfaart.scrutin.avoteressoubre.R.anim.slide_in_from_left, com.tkfaart.scrutin.avoteressoubre.R.anim.slide_out_to_right)
-            .replace(com.tkfaart.scrutin.avoteressoubre.R.id.fragment_container, SelectForResultFragment())
+            .replace(com.tkfaart.scrutin.avoteressoubre.R.id.fragment_container, SelectForSuiviFragment())
             .commit()
     }
 
-    private fun returnBackView(b: Boolean) {
-        if(b){
-            _binding.let {
-                it!!.btnRetour.visibility = View.GONE
-                it!!.bvContainer.visibility = View.VISIBLE
-                it!!.bvInfoContainer.visibility = View.VISIBLE
-                it!!.btnNext.text = "SUIVANT"
-                it!!.candidContainer.visibility = View.GONE
-            }
-        }else{
-            _binding.let {
-                it!!.btnRetour.visibility = View.VISIBLE
-                it!!.bvContainer.visibility = View.GONE
-                it!!.bvInfoContainer.visibility = View.GONE
-                it!!.btnNext.text = "ENRÉGISTRER"
-                it!!.candidContainer.visibility = View.VISIBLE
-            }
-        }
-    }
 
     private fun setUpBvSpinner(currentLV: String) {
         listNamesBV!!.clear()

@@ -17,7 +17,7 @@
         />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:visibility="gone"
+        android:visibility="visible"
         android:id="@+id/fabAlerte"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -25,6 +25,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="26dp"
         android:layout_marginRight="16dp"
+        app:rippleColor="@color/white"
         android:backgroundTint="@color/red_dark"
         android:src="@drawable/baseline_warning_amber_24"
         android:contentDescription="To alerte server" />

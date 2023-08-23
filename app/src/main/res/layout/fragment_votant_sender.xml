@@ -70,45 +70,6 @@
                                     android:layout_height="50dp" />
 
                                 <LinearLayout
-                                    android:id="@+id/lvContainer"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="20dp"
-                                    android:weightSum="4"
-                                    android:orientation="horizontal">
-
-                                    <TextView
-                                        android:layout_weight="1"
-                                        android:fontFamily="@font/dmsansbold"
-                                        android:layout_width="0dp"
-                                        android:textColor="@color/white"
-                                        android:layout_height="wrap_content"
-                                        android:text="Choix du Lieu De Vote: ">
-
-                                    </TextView>
-
-                                    <Space
-                                        android:layout_width="20dp"
-                                        android:layout_height="match_parent"/>
-
-                                    <LinearLayout
-                                        android:layout_width="0dp"
-                                        android:layout_weight="3"
-                                        android:gravity="center"
-                                        android:layout_height="match_parent"
-                                        android:background="@drawable/square_background"
-                                        android:orientation="vertical">
-
-                                        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
-                                            android:id="@+id/selectLieuVote"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:spinnerMode="dialog" />
-                                    </LinearLayout>
-
-                                </LinearLayout>
-
-                                <LinearLayout
                                     android:id="@+id/bvContainer"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -227,6 +188,7 @@
                                 android:orientation="vertical">
 
                                 <LinearLayout
+                                    android:layout_margin="5dp"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
@@ -235,36 +197,55 @@
                                     <androidx.appcompat.widget.AppCompatImageView
                                         android:layout_width="50dp"
                                         android:layout_height="50dp"
-                                        android:layout_gravity="center_horizontal"
+                                        android:layout_gravity="center"
                                         android:scaleType="fitXY"
-                                        app:srcCompat="@drawable/baseline_account_circle" />
+                                        app:srcCompat="@drawable/icon1" />
 
 
-                                    <EditText
-                                        android:maxLines="1"
-                                        android:focusableInTouchMode="true"
-                                        android:singleLine="true"
-                                        android:layout_marginTop="5dp"
-                                        android:layout_marginLeft="20dp"
-                                        android:layout_marginRight="40dp"
-                                        android:layout_marginBottom="5dp"
-                                        android:id="@+id/votantA"
+                                    <LinearLayout
+                                        android:orientation="vertical"
                                         android:layout_width="match_parent"
-                                        android:layout_height="35dp"
-                                        android:fontFamily="@font/dmsansmedium"
-                                        android:textStyle="bold"
-                                        android:background="@drawable/edit_text_backgrounds"
-                                        android:hint="Votant: (RICHARD KOFFI) "
-                                        android:inputType="number|textNoSuggestions"
-                                        android:textColorHint="@color/white"
-                                        android:textColor="@color/white"
-                                        android:textSize="14sp"
-                                        android:gravity="left|center_vertical"
-                                        android:paddingLeft="20dp"/>
+                                        android:layout_height="wrap_content">
 
+                                        <TextView
+                                            android:layout_gravity="center_horizontal"
+                                            android:layout_weight="1"
+                                            android:textSize="15sp"
+                                            android:fontFamily="@font/dmsansbold"
+                                            android:layout_width="wrap_content"
+                                            android:textColor="@color/white"
+                                            android:layout_height="wrap_content"
+                                            android:text="(RICHARD KOFFI)"/>
+                                        
+                                        <EditText
+                                            android:maxLines="1"
+                                            android:focusableInTouchMode="true"
+                                            android:singleLine="true"
+                                            android:layout_marginTop="5dp"
+                                            android:layout_marginLeft="20dp"
+                                            android:layout_marginRight="40dp"
+                                            android:layout_marginBottom="5dp"
+                                            android:id="@+id/votantA"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="35dp"
+                                            android:fontFamily="@font/dmsansmedium"
+                                            android:textStyle="bold"
+                                            android:background="@drawable/edit_text_backgrounds"
+                                            android:hint="Votant: "
+                                            android:inputType="number|textNoSuggestions"
+                                            android:textColorHint="@color/white"
+                                            android:textColor="@color/white"
+                                            android:textSize="14sp"
+                                            android:gravity="center"
+                                            android:paddingLeft="20dp"/>
+
+
+                                    </LinearLayout>
+                                    
                                 </LinearLayout>
 
                                 <LinearLayout
+                                    android:layout_margin="5dp"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
@@ -273,144 +254,216 @@
                                     <androidx.appcompat.widget.AppCompatImageView
                                         android:layout_width="50dp"
                                         android:layout_height="50dp"
-                                        android:layout_gravity="center_horizontal"
+                                        android:layout_gravity="center"
                                         android:scaleType="fitXY"
-                                        app:srcCompat="@drawable/baseline_account_circle" />
+                                        app:srcCompat="@drawable/icon3" />
 
-                                    <EditText
-                                    android:maxLines="1"
-                                    android:focusableInTouchMode="true"
-                                    android:singleLine="true"
-                                    android:layout_marginTop="5dp"
-                                        android:layout_marginLeft="20dp"
-                                    android:layout_marginRight="40dp"
-                                    android:layout_marginBottom="5dp"
-                                    android:id="@+id/votantB"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="35dp"
-                                    android:fontFamily="@font/dmsansmedium"
-                                    android:textStyle="bold"
-                                    android:background="@drawable/edit_text_backgrounds"
-                                    android:hint="Votant: (LASSINA TRAORE) "
-                                    android:inputType="number|textNoSuggestions"
-                                    android:textColorHint="@color/white"
-                                    android:textColor="@color/white"
-                                    android:textSize="14sp"
-                                        android:gravity="left|center_vertical"
-                                        android:paddingLeft="20dp"/>
-
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:orientation="horizontal">
-
-                                    <androidx.appcompat.widget.AppCompatImageView
-                                        android:layout_width="50dp"
-                                        android:layout_height="50dp"
-                                        android:layout_gravity="center_horizontal"
-                                        android:scaleType="fitXY"
-                                        app:srcCompat="@drawable/baseline_account_circle" />
-
-
-                                    <EditText
-                                    android:maxLines="1"
-                                    android:focusableInTouchMode="true"
-                                    android:singleLine="true"
-                                    android:layout_marginTop="5dp"
-                                        android:layout_marginLeft="20dp"
-                                    android:layout_marginRight="40dp"
-                                    android:layout_marginBottom="5dp"
-                                    android:id="@+id/votantC"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="35dp"
-                                    android:fontFamily="@font/dmsansmedium"
-                                    android:textStyle="bold"
-                                    android:background="@drawable/edit_text_backgrounds"
-                                    android:hint="Votant: (LIGNON ZIRIGNON) "
-                                    android:inputType="number|textNoSuggestions"
-                                    android:textColorHint="@color/white"
-                                    android:textColor="@color/white"
-                                    android:textSize="14sp"
-                                        android:gravity="left|center_vertical"
-                                    android:paddingLeft="20dp"/>
-
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:orientation="horizontal">
-
-                                    <androidx.appcompat.widget.AppCompatImageView
-                                        android:layout_width="50dp"
-                                        android:layout_height="50dp"
-                                        android:layout_gravity="center_horizontal"
-                                        android:scaleType="fitXY"
-                                        app:srcCompat="@drawable/baseline_account_circle" />
-
-                                    <EditText
-                                    android:maxLines="1"
-                                    android:focusableInTouchMode="true"
-                                    android:singleLine="true"
-                                    android:layout_marginTop="5dp"
-                                        android:layout_marginLeft="20dp"
-                                    android:layout_marginRight="40dp"
-                                    android:layout_marginBottom="5dp"
-                                    android:id="@+id/votantD"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="35dp"
-                                    android:fontFamily="@font/dmsansmedium"
-                                    android:textStyle="bold"
-                                    android:background="@drawable/edit_text_backgrounds"
-                                    android:hint="Votant: (PIENA COULIBALY) "
-                                    android:inputType="number|textNoSuggestions"
-                                    android:textColorHint="@color/white"
-                                    android:textColor="@color/white"
-                                    android:textSize="14sp"
-                                        android:gravity="left|center_vertical"
-                                    android:paddingLeft="20dp"/>
-
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:orientation="horizontal">
-
-                                    <androidx.appcompat.widget.AppCompatImageView
-                                        android:layout_width="50dp"
-                                        android:layout_height="50dp"
-                                        android:layout_gravity="center_horizontal"
-                                        android:scaleType="fitXY"
-                                        app:srcCompat="@drawable/baseline_account_circle" />
-
-
-                                    <EditText
-                                        android:maxLines="1"
-                                        android:focusableInTouchMode="true"
-                                        android:singleLine="true"
-                                        android:layout_marginTop="5dp"
-                                        android:layout_marginLeft="20dp"
-                                        android:layout_marginRight="40dp"
-                                        android:layout_marginBottom="5dp"
-                                        android:id="@+id/votantE"
+                                    <LinearLayout
+                                        android:orientation="vertical"
                                         android:layout_width="match_parent"
-                                        android:layout_height="35dp"
-                                        android:fontFamily="@font/dmsansmedium"
-                                        android:textStyle="bold"
-                                        android:background="@drawable/edit_text_backgrounds"
-                                        android:hint="Votant: (CLEMENTINE GOBA) "
-                                        android:inputType="number|textNoSuggestions"
-                                        android:textColorHint="@color/white"
-                                        android:textColor="@color/white"
-                                        android:textSize="14sp"
-                                            android:gravity="left|center_vertical"
-                                        android:paddingLeft="20dp"/>
+                                        android:layout_height="wrap_content">
+
+                                        <TextView
+                                            android:layout_gravity="center_horizontal"
+                                            android:layout_weight="1"
+                                            android:textSize="15sp"
+                                            android:fontFamily="@font/dmsansbold"
+                                            android:layout_width="wrap_content"
+                                            android:textColor="@color/white"
+                                            android:layout_height="wrap_content"
+                                            android:text="(LASSINA TRAORE)"/>
+
+                                        <EditText
+                                            android:maxLines="1"
+                                            android:focusableInTouchMode="true"
+                                            android:singleLine="true"
+                                            android:layout_marginTop="5dp"
+                                                android:layout_marginLeft="20dp"
+                                            android:layout_marginRight="40dp"
+                                            android:layout_marginBottom="5dp"
+                                            android:id="@+id/votantB"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="35dp"
+                                            android:fontFamily="@font/dmsansmedium"
+                                            android:textStyle="bold"
+                                            android:background="@drawable/edit_text_backgrounds"
+                                            android:hint="Votant: "
+                                            android:inputType="number|textNoSuggestions"
+                                            android:textColorHint="@color/white"
+                                            android:textColor="@color/white"
+                                            android:textSize="14sp"
+                                                android:gravity="center"
+                                                android:paddingLeft="20dp"/>
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_margin="5dp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:orientation="horizontal">
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:layout_gravity="center"
+                                        android:scaleType="fitXY"
+                                        app:srcCompat="@drawable/icon1" />
+
+                                    <LinearLayout
+                                        android:orientation="vertical"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content">
+
+                                        <TextView
+                                            android:layout_gravity="center_horizontal"
+                                            android:layout_weight="1"
+                                            android:textSize="15sp"
+                                            android:fontFamily="@font/dmsansbold"
+                                            android:layout_width="wrap_content"
+                                            android:textColor="@color/white"
+                                            android:layout_height="wrap_content"
+                                            android:text="(LIGNON ZIRIGNON)"/>
+
+
+                                        <EditText
+                                            android:maxLines="1"
+                                            android:focusableInTouchMode="true"
+                                            android:singleLine="true"
+                                            android:layout_marginTop="5dp"
+                                                android:layout_marginLeft="20dp"
+                                            android:layout_marginRight="40dp"
+                                            android:layout_marginBottom="5dp"
+                                            android:id="@+id/votantC"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="35dp"
+                                            android:fontFamily="@font/dmsansmedium"
+                                            android:textStyle="bold"
+                                            android:background="@drawable/edit_text_backgrounds"
+                                            android:hint="Votant: "
+                                            android:inputType="number|textNoSuggestions"
+                                            android:textColorHint="@color/white"
+                                            android:textColor="@color/white"
+                                            android:textSize="14sp"
+                                                android:gravity="center"
+                                            android:paddingLeft="20dp"/>
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_margin="5dp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:orientation="horizontal">
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:layout_gravity="center"
+                                        android:scaleType="fitXY"
+                                        app:srcCompat="@drawable/icon2" />
+
+                                    <LinearLayout
+                                        android:orientation="vertical"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content">
+
+                                        <TextView
+                                            android:layout_gravity="center_horizontal"
+                                            android:layout_weight="1"
+                                            android:textSize="15sp"
+                                            android:fontFamily="@font/dmsansbold"
+                                            android:layout_width="wrap_content"
+                                            android:textColor="@color/white"
+                                            android:layout_height="wrap_content"
+                                            android:text="(PIENA COULIBALY)"/>
+
+
+                                        <EditText
+                                            android:maxLines="1"
+                                            android:focusableInTouchMode="true"
+                                            android:singleLine="true"
+                                            android:layout_marginTop="5dp"
+                                                android:layout_marginLeft="20dp"
+                                            android:layout_marginRight="40dp"
+                                            android:layout_marginBottom="5dp"
+                                            android:id="@+id/votantD"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="35dp"
+                                            android:fontFamily="@font/dmsansmedium"
+                                            android:textStyle="bold"
+                                            android:background="@drawable/edit_text_backgrounds"
+                                            android:hint="Votant: "
+                                            android:inputType="number|textNoSuggestions"
+                                            android:textColorHint="@color/white"
+                                            android:textColor="@color/white"
+                                            android:textSize="14sp"
+                                                android:gravity="center"
+                                            android:paddingLeft="20dp"/>
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_margin="5dp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:orientation="horizontal">
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:layout_gravity="center"
+                                        android:scaleType="fitXY"
+                                        app:srcCompat="@drawable/icon2" />
+
+                                    <LinearLayout
+                                        android:orientation="vertical"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content">
+
+                                        <TextView
+                                            android:layout_gravity="center_horizontal"
+                                            android:layout_weight="1"
+                                            android:textSize="15sp"
+                                            android:fontFamily="@font/dmsansbold"
+                                            android:layout_width="wrap_content"
+                                            android:textColor="@color/white"
+                                            android:layout_height="wrap_content"
+                                            android:text="(CLEMENTINE GOBA)"/>
+
+
+                                        <EditText
+                                            android:maxLines="1"
+                                            android:focusableInTouchMode="true"
+                                            android:singleLine="true"
+                                            android:layout_marginTop="5dp"
+                                            android:layout_marginLeft="20dp"
+                                            android:layout_marginRight="40dp"
+                                            android:layout_marginBottom="5dp"
+                                            android:id="@+id/votantE"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="35dp"
+                                            android:fontFamily="@font/dmsansmedium"
+                                            android:textStyle="bold"
+                                            android:background="@drawable/edit_text_backgrounds"
+                                            android:hint="Votant: "
+                                            android:inputType="number|textNoSuggestions"
+                                            android:textColorHint="@color/white"
+                                            android:textColor="@color/white"
+                                            android:textSize="14sp"
+                                                android:gravity="center"
+                                            android:paddingLeft="20dp"/>
+
+                                    </LinearLayout>
 
                                 </LinearLayout>
 

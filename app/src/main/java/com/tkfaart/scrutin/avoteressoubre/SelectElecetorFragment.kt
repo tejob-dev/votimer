@@ -159,14 +159,14 @@ class SelectElecetorFragment : Fragment() {
 
             for (i in 0 until jsonArray.length()) {
                 val personObject = jsonArray.getJSONObject(i)
-                if(personObject.getString("zone").toInt() == zoneId!!.toInt()) {
+                //if(personObject.getString("zone").toInt() == zoneId!!.toInt()) {
                     val person = ElectoratModel(
                         personObject.getString("subid"),
                         personObject.getString("nom_prenoms"),
-                        personObject.getString("zone").toInt(),
+                        //personObject.getString("zone").toInt(),
                     )
                     persons.add(person)
-                }
+                //}
             }
         } catch (e: Exception) {
             e.printStackTrace()

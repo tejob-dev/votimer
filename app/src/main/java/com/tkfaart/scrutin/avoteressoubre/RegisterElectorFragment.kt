@@ -106,7 +106,7 @@ class RegisterElectorFragment : Fragment() {
 
         _binding?.btnRegister?.setOnClickListener{
             Log.d(this.javaClass.toString(), "text content ${zoneText!!.text}")
-            if(!Commons.iS_RESP){
+            if(Commons.iS_RESP){
                 if(zoneText!!.text.isNotEmpty()) {
                     prf!!.setString("zoneId", zoneText.text.toString())
                     checkMobile(telephone)
@@ -163,8 +163,8 @@ class RegisterElectorFragment : Fragment() {
         }
 
         if(Commons.iS_RESP){
-            _binding!!.selectMultiElecteur.visibility = View.GONE
-            _binding!!.edZone.visibility = View.VISIBLE
+            //_binding!!.selectMultiElecteur.visibility = View.GONE
+            //_binding!!.edZone.visibility = View.VISIBLE
         }else{
             _binding!!.selectMultiElecteur.visibility = View.VISIBLE
             _binding!!.edZone.visibility = View.GONE
@@ -246,13 +246,12 @@ class RegisterElectorFragment : Fragment() {
 
     private fun checkMobile(telephone: EditText?) {
         val mobile = prf!!.getString("ag_tel")
-        if(mobile.isEmpty()){
-            var telephone = telephone?.text
-            var phone = checkPhoneNumber(telephone?.trim().toString())
+        if(mobile.isNullOrBlank()){
+            var telephonePh = telephone?.text
+            var phone = checkPhoneNumber(telephonePh?.trim().toString())
 
             if (phone != null) {
                 prf!!.setString("ag_tel", phone)
-
                 SweetAlertDialog(requireContext(), SweetAlertDialog.SUCCESS_TYPE)
                     .setTitleText("Message")
                     .setContentText("Votre enregistrement est effectué avec succès!")
@@ -274,9 +273,9 @@ class RegisterElectorFragment : Fragment() {
         }else{
 
             var telephone = checkPhoneNumber(telephone?.text?.trim().toString())
-            var item = mobile
+            //var item = mobile
 
-            if(item.equals(telephone, ignoreCase = false)){
+            if(mobile.equals(telephone, ignoreCase = false)){
                 requireActivity().supportFragmentManager.beginTransaction()
                     .setCustomAnimations(R.anim.slide_in_from_right, R.anim.slide_out_to_left,
                         R.anim.slide_in_from_left, R.anim.slide_out_to_right)

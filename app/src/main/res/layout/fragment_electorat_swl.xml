@@ -76,7 +76,7 @@
                                 android:gravity="center_horizontal"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Choisir de l'electeur"
+                                android:text="Choisir du Lieu de Vote"
                                 android:fontFamily="@font/dmsansmedium"
                                 android:textSize="20sp"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
@@ -90,7 +90,7 @@
                                 android:orientation="vertical">
 
                                 <com.toptoche.searchablespinnerlibrary.SearchableSpinner
-                                    android:id="@+id/selectMultiElecteur"
+                                    android:id="@+id/selectMLieuDeVote"
                                     android:layout_width="match_parent"
                                     android:layout_height="37dp"
                                     android:spinnerMode="dialog" />

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:theme="@style/ThemeOverlay.GBScrutin.FullscreenContainer"
+
+    tools:context=".FullscreenFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        android:layout_gravity="center">
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:orientation="vertical">-->
+
+<!--        </LinearLayout>-->
+
+        <ImageView
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/circle_image"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:background="@drawable/circle"
+            android:scaleType="centerCrop"
+            android:src="@drawable/logo" />
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:layout_margin="0dp"-->
+<!--            android:layout_marginVertical="15dp"-->
+<!--            android:fontFamily="@font/dmsansmedium"-->
+<!--            android:gravity="center_horizontal"-->
+<!--            android:text="@string/app_name_init"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="30sp"-->
+<!--            android:textStyle="italic" />-->
+
+    </LinearLayout>
+
+
+</FrameLayout>

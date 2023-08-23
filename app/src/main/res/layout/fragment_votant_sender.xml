@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="?attr/fullscreenBackgroundColor"
+    android:theme="@style/ThemeOverlay.GBScrutin.FullscreenContainer"
+    android:backgroundTint="@color/blue"
+    tools:context=".SelectElecetorFragment">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/fullscreenBackgroundColor"
+        android:backgroundTint="@color/blue"
+        android:theme="@style/ThemeOverlay.GBScrutin.FullscreenContainer"
+        tools:context=".SendInfoFragment">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/fullscreenBackgroundColor"
+            android:backgroundTint="@color/blue"
+            android:theme="@style/ThemeOverlay.GBScrutin.FullscreenContainer"
+            tools:context=".SendInfoFragment">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="false">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="vertical">
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/blue"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="35dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:fontFamily="@font/dmsansmedium"
+                                    android:paddingLeft="18dp"
+                                    android:text="RÉSULTATS DU SCRUTIN"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                                    android:textColor="@color/purple_500"
+                                    android:textSize="22sp" />
+
+                                <Space
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp" />
+
+                                <LinearLayout
+                                    android:id="@+id/lvContainer"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="20dp"
+                                    android:weightSum="4"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_weight="1"
+                                        android:fontFamily="@font/dmsansbold"
+                                        android:layout_width="0dp"
+                                        android:textColor="@color/white"
+                                        android:layout_height="wrap_content"
+                                        android:text="Choix du Lieu De Vote: ">
+
+                                    </TextView>
+
+                                    <Space
+                                        android:layout_width="20dp"
+                                        android:layout_height="match_parent"/>
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_weight="3"
+                                        android:gravity="center"
+                                        android:layout_height="match_parent"
+                                        android:background="@drawable/square_background"
+                                        android:orientation="vertical">
+
+                                        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                                            android:id="@+id/selectLieuVote"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:spinnerMode="dialog" />
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/bvContainer"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="20dp"
+                                    android:weightSum="4"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_weight="1"
+                                        android:fontFamily="@font/dmsansbold"
+                                        android:layout_width="0dp"
+                                        android:textColor="@color/white"
+                                        android:layout_height="wrap_content"
+                                        android:text="Choix du Bureau De Vote: ">
+
+                                    </TextView>
+
+                                    <Space
+                                        android:layout_width="20dp"
+                                        android:layout_height="match_parent"/>
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_weight="3"
+                                        android:gravity="center"
+                                        android:layout_height="match_parent"
+                                        android:background="@drawable/square_background"
+                                        android:orientation="vertical">
+
+                                        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                                            android:id="@+id/selectBureauVote"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:spinnerMode="dialog" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/bvInfoContainer"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:orientation="vertical">
+
+                                <EditText
+                                    android:maxLines="1"
+                                    android:focusableInTouchMode="true"
+                                    android:singleLine="true"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginLeft="40dp"
+                                    android:layout_marginRight="40dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:id="@+id/votant"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="35dp"
+                                    android:fontFamily="@font/dmsansmedium"
+                                    android:textStyle="bold"
+                                    android:background="@drawable/edit_text_backgrounds"
+                                    android:hint="Votants"
+                                    android:inputType="number|textNoSuggestions"
+                                    android:textColorHint="@color/white"
+                                    android:textColor="@color/white"
+                                    android:textSize="16sp"
+                                    android:paddingLeft="20dp"/>
+
+                                <EditText
+                                    android:maxLines="1"
+                                    android:focusableInTouchMode="true"
+                                    android:singleLine="true"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginLeft="40dp"
+                                    android:layout_marginRight="40dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:id="@+id/bultNull"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="35dp"
+                                    android:fontFamily="@font/dmsansmedium"
+                                    android:textStyle="bold"
+                                    android:background="@drawable/edit_text_backgrounds"
+                                    android:hint="Bulletins nuls"
+                                    android:inputType="number|textNoSuggestions"
+                                    android:textColorHint="@color/white"
+                                    android:textColor="@color/white"
+                                    android:textSize="16sp"
+                                    android:paddingLeft="20dp"/>
+
+                                <EditText
+                                    android:maxLines="1"
+                                    android:focusableInTouchMode="true"
+                                    android:singleLine="true"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginLeft="40dp"
+                                    android:layout_marginRight="40dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:id="@+id/bultBlanc"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="35dp"
+                                    android:fontFamily="@font/dmsansmedium"
+                                    android:textStyle="bold"
+                                    android:background="@drawable/edit_text_backgrounds"
+                                    android:hint="Bulletins blancs"
+                                    android:inputType="number|textNoSuggestions"
+                                    android:textColorHint="@color/white"
+                                    android:textColor="@color/white"
+                                    android:textSize="16sp"
+                                    android:paddingLeft="20dp"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:visibility="gone"
+                                android:id="@+id/candidContainer"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="20dp"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:orientation="horizontal">
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:layout_gravity="center_horizontal"
+                                        android:scaleType="fitXY"
+                                        app:srcCompat="@drawable/baseline_account_circle" />
+
+
+                                    <EditText
+                                        android:maxLines="1"
+                                        android:focusableInTouchMode="true"
+                                        android:singleLine="true"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginLeft="20dp"
+                                        android:layout_marginRight="40dp"
+                                        android:layout_marginBottom="5dp"
+                                        android:id="@+id/votantA"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="35dp"
+                                        android:fontFamily="@font/dmsansmedium"
+                                        android:textStyle="bold"
+                                        android:background="@drawable/edit_text_backgrounds"
+                                        android:hint="Votant: (RICHARD KOFFI) "
+                                        android:inputType="number|textNoSuggestions"
+                                        android:textColorHint="@color/white"
+                                        android:textColor="@color/white"
+                                        android:textSize="14sp"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="20dp"/>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:orientation="horizontal">
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:layout_gravity="center_horizontal"
+                                        android:scaleType="fitXY"
+                                        app:srcCompat="@drawable/baseline_account_circle" />
+
+                                    <EditText
+                                    android:maxLines="1"
+                                    android:focusableInTouchMode="true"
+                                    android:singleLine="true"
+                                    android:layout_marginTop="5dp"
+                                        android:layout_marginLeft="20dp"
+                                    android:layout_marginRight="40dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:id="@+id/votantB"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="35dp"
+                                    android:fontFamily="@font/dmsansmedium"
+                                    android:textStyle="bold"
+                                    android:background="@drawable/edit_text_backgrounds"
+                                    android:hint="Votant: (LASSINA TRAORE) "
+                                    android:inputType="number|textNoSuggestions"
+                                    android:textColorHint="@color/white"
+                                    android:textColor="@color/white"
+                                    android:textSize="14sp"
+                                        android:gravity="left|center_vertical"
+                                        android:paddingLeft="20dp"/>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:orientation="horizontal">
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:layout_gravity="center_horizontal"
+                                        android:scaleType="fitXY"
+                                        app:srcCompat="@drawable/baseline_account_circle" />
+
+
+                                    <EditText
+                                    android:maxLines="1"
+                                    android:focusableInTouchMode="true"
+                                    android:singleLine="true"
+                                    android:layout_marginTop="5dp"
+                                        android:layout_marginLeft="20dp"
+                                    android:layout_marginRight="40dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:id="@+id/votantC"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="35dp"
+                                    android:fontFamily="@font/dmsansmedium"
+                                    android:textStyle="bold"
+                                    android:background="@drawable/edit_text_backgrounds"
+                                    android:hint="Votant: (LIGNON ZIRIGNON) "
+                                    android:inputType="number|textNoSuggestions"
+                                    android:textColorHint="@color/white"
+                                    android:textColor="@color/white"
+                                    android:textSize="14sp"
+                                        android:gravity="left|center_vertical"
+                                    android:paddingLeft="20dp"/>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:orientation="horizontal">
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:layout_gravity="center_horizontal"
+                                        android:scaleType="fitXY"
+                                        app:srcCompat="@drawable/baseline_account_circle" />
+
+                                    <EditText
+                                    android:maxLines="1"
+                                    android:focusableInTouchMode="true"
+                                    android:singleLine="true"
+                                    android:layout_marginTop="5dp"
+                                        android:layout_marginLeft="20dp"
+                                    android:layout_marginRight="40dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:id="@+id/votantD"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="35dp"
+                                    android:fontFamily="@font/dmsansmedium"
+                                    android:textStyle="bold"
+                                    android:background="@drawable/edit_text_backgrounds"
+                                    android:hint="Votant: (PIENA COULIBALY) "
+                                    android:inputType="number|textNoSuggestions"
+                                    android:textColorHint="@color/white"
+                                    android:textColor="@color/white"
+                                    android:textSize="14sp"
+                                        android:gravity="left|center_vertical"
+                                    android:paddingLeft="20dp"/>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:orientation="horizontal">
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:layout_gravity="center_horizontal"
+                                        android:scaleType="fitXY"
+                                        app:srcCompat="@drawable/baseline_account_circle" />
+
+
+                                    <EditText
+                                        android:maxLines="1"
+                                        android:focusableInTouchMode="true"
+                                        android:singleLine="true"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginLeft="20dp"
+                                        android:layout_marginRight="40dp"
+                                        android:layout_marginBottom="5dp"
+                                        android:id="@+id/votantE"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="35dp"
+                                        android:fontFamily="@font/dmsansmedium"
+                                        android:textStyle="bold"
+                                        android:background="@drawable/edit_text_backgrounds"
+                                        android:hint="Votant: (CLEMENTINE GOBA) "
+                                        android:inputType="number|textNoSuggestions"
+                                        android:textColorHint="@color/white"
+                                        android:textColor="@color/white"
+                                        android:textSize="14sp"
+                                            android:gravity="left|center_vertical"
+                                        android:paddingLeft="20dp"/>
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <Button
+                                android:id="@+id/btn_next"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:layout_marginLeft="60dp"
+                                android:layout_marginTop="50dp"
+                                android:layout_marginRight="60dp"
+                                android:layout_marginBottom="10dp"
+                                android:background="@drawable/rounded_button_background"
+                                android:fontFamily="@font/dmsansmedium"
+                                android:gravity="center"
+                                android:text="SUIVANT"
+                                android:textColor="@color/blue"
+                                android:textFontWeight="800"
+                                android:textSize="19sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:visibility="gone"
+                                android:id="@+id/btn_retour"
+                                android:layout_width="match_parent"
+                                android:layout_height="20dp"
+                                android:layout_marginLeft="60dp"
+                                android:layout_marginRight="60dp"
+                                android:fontFamily="@font/dmsansmedium"
+                                android:gravity="center"
+                                android:text="RETOUR"
+                                android:textColor="@color/white"
+                                android:textFontWeight="800"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                            <Button
+                                android:id="@+id/go_back"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/baseline_arrow_back_24"></Button>
+                    </RelativeLayout>
+                </LinearLayout>
+
+
+            </ScrollView>
+
+        </FrameLayout>
+
+    </FrameLayout>
+
+</FrameLayout>

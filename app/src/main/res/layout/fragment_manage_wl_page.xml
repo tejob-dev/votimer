@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue"
+    android:theme="@style/ThemeOverlay.GBScrutin.FullscreenContainer"
+    >
+
+    <ScrollView
+        android:id="@+id/scroll_root"
+        android:fillViewport="true"
+        android:isScrollContainer="false"
+        android:focusableInTouchMode="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/blue"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_marginTop="25dp"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/circle_image"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:background="@drawable/circle"
+                android:scaleType="centerCrop"
+                android:src="@drawable/photo" />
+
+
+            <Button
+                android:layout_marginTop="100dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/addVotant"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/rounded_button_background"
+                android:text="Ajouter Votants"
+                android:textStyle="bold"
+                android:textFontWeight="800"
+                android:fontFamily="@font/dmsansmedium"
+                android:textColor="@color/blue"
+                android:textSize="15sp"
+                android:gravity="center" />
+
+
+            <Button
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/listVotant"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:maxLines="1"
+                android:background="@drawable/rounded_button_background"
+                android:text="Voir les votants identifiés"
+                android:textStyle="bold"
+                android:textFontWeight="800"
+                android:fontFamily="@font/dmsansmedium"
+                android:textColor="@color/blue"
+                android:textSize="15sp"
+                android:gravity="center" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp"></Space>
+
+            <TextView
+                android:id="@+id/btn_back"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp"
+                android:fontFamily="@font/dmsansmedium"
+                android:gravity="center"
+                android:text="RETOUR"
+                android:textColor="@color/white"
+                android:textFontWeight="800"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:id="@+id/bottom_space"
+                android:layout_width="match_parent"
+                android:layout_height="1px">
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>

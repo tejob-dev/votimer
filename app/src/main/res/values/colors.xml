@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#0056A8</color>
+    <color name="purple_500">#E0E0E0</color>
+    <color name="purple_700">#0056A8</color>
+    <color name="teal_200">#333330</color>
+    <color name="teal_700">#868F8F</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="primaryColor">#ffffff</color>
+    <color name="primaryLightColor">#ffffff</color>
+    <color name="primaryDarkColor">#f3f7f9</color>
+    <color name="secondaryColor">#000000</color>
+    <color name="secondaryLightColor">#000000</color>
+    <color name="secondaryDarkColor">#000000</color>
+    <color name="primaryTextColor">#000000</color>
+    <color name="secondaryTextColor">#ffffff</color>
+
+    <color name="defaultDay">#ffffff</color>
+    <color name="defaultNight">#000000</color>
+
+    <color name="defaultDayDark">#f3f7f9</color>
+    <color name="defaultNightDark">#1E2132</color>
+
+    <color name="statusBar">#0056A8</color>
+    <color name="light_blue_600">#0056A8</color>
+    <color name="light_blue_900">#C65003</color>
+    <color name="light_blue_A200">#FB893E</color>
+    <color name="light_blue_A400">#FFA265</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="circle_stroke_color">@android:color/transparent</color>
+    <color name="blue">#0056A8</color>
+    <color name="green_dark">#4B8100</color>
+    <color name="red">#0056A8</color>
+
+    <color name="button_text_color">#0056A8</color>
+    <color name="red_dark">#FF1100</color>
+
+</resources>

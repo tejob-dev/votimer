@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Suivis_Résultats_PV - Soubré</string>
+    <string name="app_name_init">&#160;COMMUNE DE SOUBRE&#160;</string>
+    <string name="hint_observation">&#160;Observations \: \n \(Demande d\'assistance pour une participation effective au scrutin électoral prochain de 2023)</string>
+    <string name="section_name">Zoumana Bakayoko</string>
+    <string name="lv_name">communes.json</string>
+    <string name="section_name_sec">COMMUNE DE SOUBRE</string>
+    <string name="commune_name">SOUsBRE</string>
+    <string name="Candid_name"></string>
+    <string name="su_commune_name"></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

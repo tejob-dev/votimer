@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="?attr/fullscreenBackgroundColor"
+    android:theme="@style/ThemeOverlay.GBScrutin.FullscreenContainer"
+    android:backgroundTint="@color/blue"
+    tools:context=".SelectElecetorFragment">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/fullscreenBackgroundColor"
+        android:backgroundTint="@color/blue"
+        android:theme="@style/ThemeOverlay.GBScrutin.FullscreenContainer"
+        tools:context=".SendInfoFragment">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/fullscreenBackgroundColor"
+            android:backgroundTint="@color/blue"
+            android:theme="@style/ThemeOverlay.GBScrutin.FullscreenContainer"
+            tools:context=".SendInfoFragment">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="false">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="vertical">
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/blue"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="45dp"
+                                android:layout_marginBottom="10dp"
+                                android:fontFamily="@font/dmsansmedium"
+                                android:paddingLeft="18dp"
+                                android:text="ELECTORAT VOTANT IDENTIFIÉ"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                                android:textColor="@color/purple_500"
+                                android:textSize="22sp" />
+
+                            <TextView
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="30dp"
+                                android:layout_gravity="center_horizontal"
+                                android:gravity="center_horizontal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Vérification"
+                                android:textAllCaps="true"
+                                android:fontFamily="@font/dmsansmedium"
+                                android:textSize="16sp"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                                android:textColor="@color/purple_500"/>
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="25dp"
+                                android:layout_marginBottom="10dp"
+                                android:fontFamily="@font/dmsansmedium"
+                                android:paddingLeft="18dp"
+                                android:text="Liste récapitulative"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                                android:textColor="@color/purple_500"
+                                android:textSize="22sp" />
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/listOfSavedElector"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:padding="5dp"
+                                tools:itemCount="4"
+                                tools:listitem="@layout/simple_spinner_dropdown_list_item"></androidx.recyclerview.widget.RecyclerView>
+
+
+                            <TextView
+                                android:id="@+id/list_tv_empty"
+                                android:visibility="gone"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="25dp"
+                                android:layout_marginBottom="10dp"
+                                android:fontFamily="@font/dmsansmedium"
+                                android:paddingLeft="18dp"
+                                android:text="--la liste est vide--"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                                android:textColor="@color/purple_500"
+                                android:textSize="22sp" />
+
+                        </LinearLayout>
+
+                        <Button
+                            android:id="@+id/go_back"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/baseline_arrow_back_24"></Button>
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+
+            </ScrollView>
+
+        </FrameLayout>
+
+    </FrameLayout>
+
+</FrameLayout>

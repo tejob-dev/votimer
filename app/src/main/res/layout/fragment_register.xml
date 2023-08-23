@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/fullscreenBackgroundColor"
+    android:theme="@style/ThemeOverlay.GBScrutin.FullscreenContainer"
+    android:backgroundTint="@color/blue"
+    tools:context=".RegisterFragment">
+
+    <ScrollView
+        android:focusableInTouchMode="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/blue"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/blue"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_marginTop="50dp"
+                        android:layout_marginBottom="40dp"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Enrégistrement"
+                        android:fontFamily="@font/dmsansmedium"
+                        android:textSize="26sp"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textColor="@color/purple_500"/>
+
+                    <EditText
+                        android:maxLines="1"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginRight="40dp"
+                        android:layout_marginBottom="10dp"
+                        android:id="@+id/nom"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/dmsansmedium"
+                        android:textStyle="bold"
+                        android:background="@drawable/edit_text_background"
+                        android:hint="Votre nom"
+                        android:textColorHint="#BAB2B2"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:padding="10dp"
+                        android:gravity="center" />
+
+                    <EditText
+                        android:maxLines="1"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginRight="40dp"
+                        android:layout_marginBottom="10dp"
+                        android:id="@+id/prenom"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/dmsansmedium"
+                        android:textStyle="bold"
+                        android:background="@drawable/edit_text_background"
+                        android:hint="Votre prénom"
+                        android:textColorHint="#BAB2B2"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:padding="10dp"
+                        android:gravity="center" />
+
+                    <EditText
+                        android:maxLines="1"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginRight="40dp"
+                        android:layout_marginBottom="10dp"
+                        android:id="@+id/telephone"
+                        android:inputType="phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/dmsansmedium"
+                        android:textStyle="bold"
+                        android:background="@drawable/edit_text_background"
+                        android:hint="Téléphone, ex: 0708070809"
+                        android:textColorHint="#BAB2B2"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:padding="10dp"
+                        android:gravity="center" />
+
+                    <EditText
+                        android:maxLines="1"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginRight="40dp"
+                        android:layout_marginBottom="10dp"
+                        android:id="@+id/section"
+                        android:inputType="text"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/dmsansmedium"
+                        android:textStyle="bold"
+                        android:background="@drawable/edit_text_background"
+                        android:hint="Votre section"
+                        android:textColorHint="#BAB2B2"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:padding="10dp"
+                        android:gravity="center" />
+
+                    <EditText
+                        android:id="@+id/sou_section"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="40dp"
+                        android:layout_marginBottom="50dp"
+                        android:background="@drawable/edit_text_background"
+                        android:fontFamily="@font/dmsansmedium"
+                        android:gravity="center"
+                        android:hint="Votre sous-section"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="#BAB2B2"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:layout_marginTop="80dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:id="@+id/btn_connex"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@drawable/rounded_button_background"
+                        android:text="Authentification"
+                        android:textStyle="bold"
+                        android:textFontWeight="800"
+                        android:fontFamily="@font/dmsansmedium"
+                        android:textColor="@color/blue"
+                        android:textSize="24sp"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <!-- <Button
+                    android:id="@+id/go_back"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/baseline_arrow_back_24"
+                    >
+                </Button> -->
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:id="@+id/bottom_space"
+                android:layout_width="match_parent"
+                android:layout_height="1px">
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</FrameLayout>

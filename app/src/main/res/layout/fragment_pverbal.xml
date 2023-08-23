@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="?attr/fullscreenBackgroundColor"
+    android:theme="@style/ThemeOverlay.GBScrutin.FullscreenContainer"
+    android:backgroundTint="@color/blue"
+    tools:context=".SelectElecetorFragment">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/fullscreenBackgroundColor"
+        android:backgroundTint="@color/blue"
+        android:theme="@style/ThemeOverlay.GBScrutin.FullscreenContainer"
+        tools:context=".SendInfoFragment">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/fullscreenBackgroundColor"
+            android:backgroundTint="@color/blue"
+            android:theme="@style/ThemeOverlay.GBScrutin.FullscreenContainer"
+            tools:context=".SendInfoFragment">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="false">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="vertical">
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/blue"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="35dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:fontFamily="@font/dmsansmedium"
+                                    android:paddingLeft="18dp"
+                                    android:text="Procès verbal"
+                                    android:textAllCaps="true"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                                    android:textColor="@color/purple_500"
+                                    android:textSize="22sp" />
+
+                                <Space
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp" />
+
+                                <LinearLayout
+                                    android:id="@+id/lvContainer"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="20dp"
+                                    android:weightSum="4"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_weight="1"
+                                        android:fontFamily="@font/dmsansbold"
+                                        android:layout_width="0dp"
+                                        android:textColor="@color/white"
+                                        android:layout_height="wrap_content"
+                                        android:text="Choix du Lieu De Vote: ">
+
+                                    </TextView>
+
+                                    <Space
+                                        android:layout_width="20dp"
+                                        android:layout_height="match_parent"/>
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_weight="3"
+                                        android:gravity="center"
+                                        android:layout_height="match_parent"
+                                        android:background="@drawable/square_background"
+                                        android:orientation="vertical">
+
+                                        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                                            android:id="@+id/selectLieuVote"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:spinnerMode="dialog" />
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/bvContainer"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="20dp"
+                                    android:weightSum="4"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_weight="1"
+                                        android:fontFamily="@font/dmsansbold"
+                                        android:layout_width="0dp"
+                                        android:textColor="@color/white"
+                                        android:layout_height="wrap_content"
+                                        android:text="Choix du Bureau De Vote: ">
+
+                                    </TextView>
+
+                                    <Space
+                                        android:layout_width="20dp"
+                                        android:layout_height="match_parent"/>
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_weight="3"
+                                        android:gravity="center"
+                                        android:layout_height="match_parent"
+                                        android:background="@drawable/square_background"
+                                        android:orientation="vertical">
+
+                                        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                                            android:id="@+id/selectBureauVote"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:spinnerMode="dialog" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/image_charger"
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:layout_marginLeft="60dp"
+                                    android:layout_marginTop="50dp"
+                                    android:layout_marginRight="60dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:padding="15dp"
+                                    android:background="@drawable/rounded_iv_back"
+                                    android:fontFamily="@font/dmsansmedium"
+                                    android:layout_gravity="center_horizontal"
+                                    android:textColor="@color/blue"
+                                    android:textFontWeight="800"
+                                    android:textSize="19sp"
+                                    app:srcCompat="@drawable/baseline_add_a_photo_24"
+                                    android:textStyle="bold" />
+
+                                <LinearLayout
+                                    android:gravity="center"
+                                    android:layout_margin="20dp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_horizontal"
+                                        android:fontFamily="@font/dmsansmedium"
+                                        android:gravity="center_horizontal"
+                                        android:text="Nombre de PV\n(en mémoire):"
+                                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                                        android:textColor="#FFFFFF"
+                                        android:textSize="20sp"
+                                        android:textStyle="bold" />
+
+                                    <Space
+                                        android:layout_width="20dp"
+                                        android:layout_height="match_parent"></Space>
+
+                                    <TextView
+                                        android:id="@+id/counter_pvs"
+                                        android:layout_gravity="center"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="0"
+                                        android:fontFamily="@font/dmsansmedium"
+                                        android:textSize="20sp"
+                                        android:textStyle="bold"
+                                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                                        android:textColor="#FFFFFF"/>
+
+                                </LinearLayout>
+
+                            <Button
+                                android:id="@+id/btn_next"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:layout_marginLeft="60dp"
+                                android:layout_marginTop="40dp"
+                                android:layout_marginRight="60dp"
+                                android:layout_marginBottom="10dp"
+                                android:background="@drawable/rounded_button_background"
+                                android:fontFamily="@font/dmsansmedium"
+                                android:gravity="center"
+                                android:text="Envoyer"
+                                android:textColor="@color/blue"
+                                android:textFontWeight="800"
+                                android:textSize="19sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                            <Button
+                                android:id="@+id/go_back"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/baseline_arrow_back_24"></Button>
+                    </RelativeLayout>
+                </LinearLayout>
+
+
+            </ScrollView>
+
+        </FrameLayout>
+
+    </FrameLayout>
+
+</FrameLayout>

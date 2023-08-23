@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/fullscreenBackgroundColor"
+    android:theme="@style/ThemeOverlay.GBScrutin.FullscreenContainer"
+    tools:context=".SendInfoFragment">
+
+    <ScrollView
+        android:id="@+id/scroll_root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="false"
+        android:focusableInTouchMode="true">
+        <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+            android:background="@color/blue"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginTop="35dp"
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/section_name"
+            android:fontFamily="@font/dmsansmedium"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/purple_500"/>
+
+        <TextView
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/section_name_sec"
+            android:fontFamily="@font/dmsansmedium"
+            android:textSize="18sp"
+            android:textColor="@color/white"/>
+
+        <EditText
+            android:maxLines="1"
+            android:focusableInTouchMode="true"
+            android:singleLine="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="5dp"
+            android:id="@+id/nom"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:fontFamily="@font/dmsansmedium"
+            android:textStyle="bold"
+            android:background="@drawable/edit_text_backgrounds"
+            android:hint="Nom"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:paddingLeft="20dp"/>
+
+        <EditText
+            android:maxLines="1"
+            android:focusableInTouchMode="true"
+            android:singleLine="true"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/prenom"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:fontFamily="@font/dmsansmedium"
+            android:textStyle="bold"
+            android:background="@drawable/edit_text_backgrounds"
+            android:hint="Prénoms"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:paddingLeft="20dp"/>
+
+            <EditText
+                android:maxLines="1"
+            android:focusableInTouchMode="true"
+            android:singleLine="true"
+                android:id="@+id/date_naiss"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/edit_text_backgrounds"
+                android:digits="0123456789-/"
+                android:fontFamily="@font/dmsansmedium"
+                android:hint="Date de naissance, ex: 10/11/2000"
+                android:inputType="text"
+                android:paddingLeft="20dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        <EditText
+            android:maxLines="1"
+            android:focusableInTouchMode="true"
+            android:singleLine="true"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/contact"
+            android:inputType="phone"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:fontFamily="@font/dmsansmedium"
+            android:textStyle="bold"
+            android:background="@drawable/edit_text_backgrounds"
+            android:hint="Contact, ex: 0708070809"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:paddingLeft="20dp"/>
+
+        <EditText
+            android:maxLines="1"
+            android:focusableInTouchMode="true"
+            android:singleLine="true"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/profession"
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:fontFamily="@font/dmsansmedium"
+            android:textStyle="bold"
+            android:background="@drawable/edit_text_backgrounds"
+            android:hint="Profession"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:paddingLeft="20dp"/>
+
+            <LinearLayout
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <!--                <TextView-->
+                <!--                    android:textSize="8sp"-->
+                <!--                    android:layout_marginVertical="5dp"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:textColor="@color/gray_btn_bg_color"-->
+                <!--                    android:text="Votre lieu de vote"/>-->
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:spinnerMode="dropdown"
+                    android:background="@drawable/edit_text_backgrounds"
+                    android:id="@+id/spinner_list_elect"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+        <EditText
+            android:maxLines="1"
+            android:focusableInTouchMode="true"
+            android:singleLine="true"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="1dp"
+            android:id="@+id/cart_elect"
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:fontFamily="@font/dmsansmedium"
+            android:textStyle="bold"
+            android:background="@drawable/edit_text_backgrounds"
+            android:hint="Votre numéro de carte d’électeur"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:paddingLeft="20dp"/>
+<!--        Ici doit venir les lieu de votes-->
+        <LinearLayout
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:paddingLeft="16dp"
+                android:text="Votre lieu de vote"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:scrollbars="vertical"
+                android:spinnerMode="dialog"
+                android:background="@drawable/edit_text_backgrounds"
+                android:id="@+id/spinner_lv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <EditText
+            android:maxLines="1"
+            android:focusableInTouchMode="true"
+            android:singleLine="true"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/residence"
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:fontFamily="@font/dmsansmedium"
+            android:textStyle="bold"
+            android:background="@drawable/edit_text_backgrounds"
+            android:hint="Lieu de résidence"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:paddingLeft="20dp"/>
+<!--            Ici doit etre la carte de militant-->
+<!--            <LinearLayout-->
+<!--                android:layout_marginTop="0dp"-->
+<!--                android:layout_marginLeft="40dp"-->
+<!--                android:layout_marginRight="40dp"-->
+<!--                android:layout_marginBottom="10dp"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical">-->
+<!--&lt;!&ndash;                <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:textSize="8sp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_marginVertical="5dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:textColor="@color/gray_btn_bg_color"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:text="Votre lieu de vote"/>&ndash;&gt;-->
+<!--                <androidx.appcompat.widget.AppCompatSpinner-->
+<!--                    android:spinnerMode="dropdown"-->
+<!--                    android:background="@drawable/edit_text_backgrounds"-->
+<!--                    android:id="@+id/spinner_cart_milit"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content" />-->
+<!--            </LinearLayout>-->
+
+        <EditText
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/observation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:lines="3"
+            android:fontFamily="@font/dmsansmedium"
+            android:textStyle="bold"
+            android:background="@drawable/edit_text_backgrounds"
+            android:hint="@string/hint_observation"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:paddingTop="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="5dp"
+            android:paddingLeft="15dp"/>
+
+            <EditText
+                android:maxLines="1"
+                android:focusableInTouchMode="true"
+                android:singleLine="true"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/ag_recenser"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:fontFamily="@font/dmsansmedium"
+                android:textStyle="bold"
+                android:background="@drawable/edit_text_backgrounds"
+                android:hint="Agent recenseur"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:paddingLeft="20dp"/>
+
+        <Button
+            android:layout_marginTop="1dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/btn_connex"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/rounded_button_background"
+            android:text="Suivant"
+            android:textStyle="bold"
+            android:textFontWeight="800"
+            android:fontFamily="@font/dmsansmedium"
+            android:textColor="@color/blue"
+            android:textSize="24sp"
+            android:gravity="center" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/bottom_space"
+            android:layout_width="match_parent"
+            android:layout_height="1dp">
+
+        </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

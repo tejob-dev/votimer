@@ -9,6 +9,8 @@ public final data class ImagePvModel(
     @Expose var lieuVoteId: String? = null,
     @Expose var bureauVoteId: String? = null,
     @Expose var imageContent: String? = null,
+    @Expose var type: String? = "PV",
+
 ):Parcelable{
 
 }

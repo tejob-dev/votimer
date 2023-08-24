@@ -200,9 +200,9 @@ class OptionFragment : Fragment() {
 
     private fun sendRequestToWeb(listCont: List<String>, imagePv: String) {
         val imagePvModel = ImagePvModel(
-            lieuVoteId = listCont[0],
-            bureauVoteId = listCont[1],
-            imageContent = listCont[2]
+            lieuVoteId = "${listCont[0]}",
+            bureauVoteId = listCont[2],
+            imageContent = listCont[3]
         )
         val reqManager = ApiClient.apiService.passImagePvOnline(imagePvModel)
         val responseOption = reqManager.execute()

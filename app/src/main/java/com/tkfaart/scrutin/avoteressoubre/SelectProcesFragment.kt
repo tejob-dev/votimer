@@ -116,8 +116,17 @@ class SelectProcesFragment : Fragment() {
 //        }
 
         listNamesBV = mutableListOf<String>()
-        val currentLV = prf!!.getString("user_lv")
-        setUpBvSpinner(currentLV)
+        val currLV = prf!!.getString("user_lv")
+
+        lieuvote.forEach {
+            if(it.id?.toInt() == currLV.toInt()) {
+                currentLVName = it.libel.toString()
+                currentLV = it.id.toString()
+            }
+        }
+        LogUtils.d(currentLVName+" "+currentLV)
+        listNamesBV = mutableListOf<String>()
+        setUpBvSpinner(currLV)
 //        _binding!!.selectLieuVote.setTitle("Choix du lieu de vote")
 //        _binding!!.selectBureauVote.setTitle("Choix du bureau de vote")
 //        _binding!!.selectLieuVote.setPositiveButton("Fermer")
@@ -192,7 +201,7 @@ class SelectProcesFragment : Fragment() {
                 if(pvList != null){
                     mutPvList = pvList.toMutableList()
                 }
-                mutPvList.add("${Commons.CurrCodeScrut}-${currentLV}*${currentBV}*${convertPathBase64(photoPath, 0)}")
+                mutPvList.add("${Commons.CurrCodeScrut}-${currentLV}*PV*${currentBV}*${convertPathBase64(photoPath, 0).trim()}")
 
                 prf!!.setArray("list_of_pv", mutPvList.toSet())
 

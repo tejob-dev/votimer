@@ -169,7 +169,7 @@ class SelectForResultFragment : Fragment() {
             && !_binding!!.bultBlanc.text.isNullOrBlank()
             && !_binding!!.bultNull.text.isNullOrBlank()
             ){
-            thereNotEmpty = !thereNotEmpty;
+            thereNotEmpty = true;
         }else{
             SweetAlertDialog(requireContext(), SweetAlertDialog.WARNING_TYPE)
                 .setTitleText("Message")
@@ -186,7 +186,7 @@ class SelectForResultFragment : Fragment() {
             && !_binding!!.votantD.text.isNullOrBlank()
             && !_binding!!.votantE.text.isNullOrBlank()
         ){
-            thereNotEmpty = !thereNotEmpty;
+            thereNotEmpty = true;
         }else{
             SweetAlertDialog(requireContext(), SweetAlertDialog.WARNING_TYPE)
                 .setTitleText("Message")
@@ -199,12 +199,20 @@ class SelectForResultFragment : Fragment() {
 
         if(thereNotEmpty){
             showAlertItem()
+        }else{
+            SweetAlertDialog(requireContext(), SweetAlertDialog.WARNING_TYPE)
+                .setTitleText("Message")
+                .setContentText("Un champ est vide!")
+                .setConfirmText("Continuer")
+                .setConfirmClickListener { sDialog ->
+                    sDialog.dismissWithAnimation()
+                }.show()
         }
 
     }
 
     private fun showAlertItem() {
-        var message = "\n------Notations------\n${currentLVName} - ${currentBVName}\nVotant: ${_binding!!.votant.text}\nBulletin Nul: ${_binding!!.bultNull.text}\nBulletin Blanc: ${_binding!!.bultBlanc.text}"
+        var message = "------Notations------\n${currentLVName} - ${currentBVName}\nVotant: ${_binding!!.votant.text}\nBulletin Nul: ${_binding!!.bultNull.text}\nBulletin Blanc: ${_binding!!.bultBlanc.text}"
         message += "\n------Candidats------\nRICHARD KOFFI: ${_binding!!.votantA.text}\nLASSINA TRAORE: ${_binding!!.votantB.text}\nLIGNON ZIRIGNON: ${_binding!!.votantC.text}\nPIENA COULIBALY: ${_binding!!.votantD.text}\nCLEMENTINE GOBA: ${_binding!!.votantE.text}"
 
         val textView = TextView(requireActivity())
@@ -223,6 +231,7 @@ class SelectForResultFragment : Fragment() {
             .setCancelText("Reprendre")
             .setConfirmClickListener { sDialog ->
                 sendMessageToSms()
+                sDialog.dismissWithAnimation()
             }.setCancelClickListener { sDialog ->
                 sDialog.dismissWithAnimation()
             }.show()
@@ -304,13 +313,13 @@ class SelectForResultFragment : Fragment() {
         _binding!!.selectBureauVote.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(adapterView: AdapterView<*>, view: View, position: Int, l: Long) {
 
-                if(firstOpenPass){
+                //if(firstOpenPass){
                     val BvModel = newBvList[position]
                     Log.e(this.javaClass.simpleName, "Counter bv "+BvModel.toString())
                     currentBV = "${BvModel.id}"
                     currentBVName = "${BvModel.libel}"
-                }
-                firstOpenPass = true
+//                }
+//                firstOpenPass = true
             }
 
             override fun onNothingSelected(arg0: AdapterView<*>) {

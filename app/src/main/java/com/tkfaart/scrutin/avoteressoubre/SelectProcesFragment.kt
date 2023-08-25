@@ -563,7 +563,7 @@ class SelectProcesFragment : Fragment() {
             }
         }
 
-        val personsAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line,
+        val personsAdapter = ArrayAdapter(requireContext(), com.tkfaart.scrutin.avoteressoubre.R.layout.simple_spinner_dropdown_list_item, com.tkfaart.scrutin.avoteressoubre.R.id.textView,
             listNamesBV!!
         )
         _binding!!.selectBureauVote.adapter = personsAdapter

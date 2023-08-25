@@ -1,6 +1,7 @@
 package com.tkfaart.scrutin.avoteressoubre
 
 import android.R
+import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
 import android.util.Log
@@ -217,7 +218,10 @@ class SelectForResultFragment : Fragment() {
         // Set TextView attributes
         textView.layoutParams =
             LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
-        textView.textSize = 15f // 25sp
+        textView.textSize = 12f // 25sp
+        textView.maxLines = 15 // 25sp
+        textView.maxEms = 100 // 25sp
+        textView.setTextColor(Color.BLACK)
         textView.textAlignment = TextView.TEXT_ALIGNMENT_CENTER
         textView.setTypeface(null, Typeface.BOLD) // Requires appropriate import
         textView.text = "${message}"
@@ -304,7 +308,7 @@ class SelectForResultFragment : Fragment() {
             }
         }
 
-        val personsAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line,
+        val personsAdapter = ArrayAdapter(requireContext(), com.tkfaart.scrutin.avoteressoubre.R.layout.simple_spinner_dropdown_list_item, com.tkfaart.scrutin.avoteressoubre.R.id.textView,
             listNamesBV!!
         )
         _binding!!.selectBureauVote.adapter = personsAdapter

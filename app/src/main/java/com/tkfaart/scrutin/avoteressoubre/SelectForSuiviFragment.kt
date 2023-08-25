@@ -1,6 +1,7 @@
 package com.tkfaart.scrutin.avoteressoubre
 
 import android.R
+import android.graphics.Color
 import android.graphics.Paint.Style
 import android.graphics.Typeface
 import android.os.Bundle
@@ -94,16 +95,16 @@ class SelectForSuiviFragment : Fragment() {
         LogUtils.d(currentLVName+" "+currentLV)
         listNamesBV = mutableListOf<String>()
 
-        if(currLV.isNullOrBlank() != true){
-            setUpBvSpinner(currLV)
-        }else{
-            requireActivity().supportFragmentManager.beginTransaction()
-                .setCustomAnimations(
-                    com.tkfaart.scrutin.avoteressoubre.R.anim.slide_in_from_right, com.tkfaart.scrutin.avoteressoubre.R.anim.slide_out_to_left,
-                    com.tkfaart.scrutin.avoteressoubre.R.anim.slide_in_from_left, com.tkfaart.scrutin.avoteressoubre.R.anim.slide_out_to_right)
-                .replace(com.tkfaart.scrutin.avoteressoubre.R.id.fragment_container, RegisterElectorFragment())
-                .commit()
-        }
+        setUpBvSpinner(currLV)
+//        if(!currLV.isNullOrBlank()){
+//        }else{
+//            requireActivity().supportFragmentManager.beginTransaction()
+//                .setCustomAnimations(
+//                    com.tkfaart.scrutin.avoteressoubre.R.anim.slide_in_from_right, com.tkfaart.scrutin.avoteressoubre.R.anim.slide_out_to_left,
+//                    com.tkfaart.scrutin.avoteressoubre.R.anim.slide_in_from_left, com.tkfaart.scrutin.avoteressoubre.R.anim.slide_out_to_right)
+//                .replace(com.tkfaart.scrutin.avoteressoubre.R.id.fragment_container, RegisterElectorFragment())
+//                .commit()
+//        }
 
 //        _binding!!.selectLieuVote.setTitle("Choix du lieu de vote")
 //        _binding!!.selectBureauVote.setTitle("Choix du bureau de vote")
@@ -163,10 +164,10 @@ class SelectForSuiviFragment : Fragment() {
     private fun sendInResultMessage() {
         var thereNotEmpty = false
 
-        if(  currentLVName.toString() != "" && currentBVName.toString() != ""
+        if(  !currentLVName.isNullOrBlank() && !currentBVName.isNullOrBlank()
             && !_binding!!.votant.text.isNullOrBlank()
             ){
-            thereNotEmpty = !thereNotEmpty;
+            thereNotEmpty = true
         }else{
             SweetAlertDialog(requireContext(), SweetAlertDialog.WARNING_TYPE)
                 .setTitleText("Message")
@@ -184,12 +185,16 @@ class SelectForSuiviFragment : Fragment() {
     }
 
     private fun showAlertItem() {
-        var message = "${currentLVName} - ${currentBVName}\n Votant: ${_binding!!.votant.text}"
+        var message = "Lieu de Vote: ${currentLVName}\n Bureau de Vote: ${currentBVName}\n Votant: ${_binding!!.votant.text.toString()}"
         val textView = TextView(requireActivity())
         // Set TextView attributes
         textView.layoutParams =
             LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
-        textView.textSize = 15f // 25sp
+        textView.textSize = 12f // 25sp
+        textView.maxLines = 15 // 25sp
+        textView.maxEms = 100 // 25sp
+        textView.setTextColor(Color.BLACK)
+        textView.textAlignment = TextView.TEXT_ALIGNMENT_CENTER
         textView.setTypeface(null, Typeface.BOLD) // Requires appropriate import
         textView.text = "${message}"
         SweetAlertDialog(requireContext(), SweetAlertDialog.WARNING_TYPE)
@@ -254,20 +259,19 @@ class SelectForSuiviFragment : Fragment() {
             }
         }
 
-        val personsAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line,
+        val personsAdapter = ArrayAdapter(requireContext(), com.tkfaart.scrutin.avoteressoubre.R.layout.simple_spinner_dropdown_list_item, com.tkfaart.scrutin.avoteressoubre.R.id.textView,
             listNamesBV!!
         )
         _binding!!.selectBureauVote.adapter = personsAdapter
         _binding!!.selectBureauVote.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(adapterView: AdapterView<*>, view: View, position: Int, l: Long) {
 
-                if(firstOpenPass){
+                //if(firstOpenPass){
                     val BvModel = newBvList[position]
                     Log.e(this.javaClass.simpleName, "Counter bv "+BvModel.toString())
                     currentBV = "${BvModel.id}"
                     currentBVName = "${BvModel.libel}"
-                }
-                firstOpenPass = true
+                //tOpenPass = true
             }
 
             override fun onNothingSelected(arg0: AdapterView<*>) {

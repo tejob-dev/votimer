@@ -86,7 +86,7 @@ class SelectElecetorSFragment : Fragment() {
         }
         Log.d("Electorat ", listNames.toString())
         newListElector!!.clear();
-        val personsAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, listNames)
+        val personsAdapter = ArrayAdapter(requireContext(), R.layout.simple_spinner_dropdown_list_item, R.id.textView, listNames)
         _binding!!.selectMLieuDeVote.adapter = personsAdapter
         _binding!!.selectMLieuDeVote.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(adapterView: AdapterView<*>, view: View, position: Int, l: Long) {

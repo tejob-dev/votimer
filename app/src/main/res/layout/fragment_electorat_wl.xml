@@ -89,6 +89,7 @@
                                     android:id="@+id/selectMultiElecteur"
                                     android:layout_width="match_parent"
                                     android:theme="@style/CustomTextColor"
+                                    app:hintText="Choix des Electeurs"
                                     android:layout_height="37dp"
                                     android:spinnerMode="dialog" />
 

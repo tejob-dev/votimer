@@ -18,6 +18,10 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
+    <style name="CustomTextColor" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
     <bool name="lightNavEnabled">true</bool>
     <!-- Base application theme. -->
     <style name="Theme.VegetablesOrderAppUI" parent="Theme.MaterialComponents.DayNight.DarkActionBar">

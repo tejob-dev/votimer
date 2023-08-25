@@ -20,6 +20,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import cn.pedant.SweetAlert.SweetAlertDialog
+import com.blankj.utilcode.util.FileUtils
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.UriUtils
 import com.tkfaart.scrutin.avoteressoubre.apiservice.ApiClient
@@ -51,6 +52,7 @@ import java.util.Locale
 class SelectProcesFragment : Fragment() {
 
 
+    private var endphoto: String = ""
     private val REQUEST_IMAGE_CAPTURE: Int = 10
     private var fileGlobal: File? = null
     private var photoPath: String = ""
@@ -201,7 +203,7 @@ class SelectProcesFragment : Fragment() {
                 if(pvList != null){
                     mutPvList = pvList.toMutableList()
                 }
-                mutPvList.add("${Commons.CurrCodeScrut}-${currentLV}*PV*${currentBV}*${convertPathBase64(photoPath, 0).trim()}")
+                mutPvList.add("${Commons.CurrCodeScrut}-${currentLV}*PV*${currentBV}*${convertPathBase64(endphoto, 0).trim()}")
 
                 prf!!.setArray("list_of_pv", mutPvList.toSet())
 
@@ -225,7 +227,7 @@ class SelectProcesFragment : Fragment() {
                 val imagePvModel = ImagePvModel(
                     lieuVoteId = "${Commons.CurrCodeScrut}-${currentLV}",
                     bureauVoteId = currentBV.toString(),
-                    imageContent = convertPathBase64(photoPath, 0)
+                    imageContent = convertPathBase64(endphoto, 0)
                 )
                 val reqManager = ApiClient.apiService.passImagePvOnline(imagePvModel)
                 val responseOption = reqManager.execute()
@@ -266,15 +268,21 @@ class SelectProcesFragment : Fragment() {
     fun convertPathBase64(filePath: String?, which: Int): String {
         if (filePath == null) return ""
 
-        val imgFile = File(filePath)
-        val options = BitmapFactory.Options()
-        options.inSampleSize = 8
-        val myBitmap = if (which == 3) BitmapFactory.decodeFile(imgFile.absolutePath) else BitmapFactory.decodeFile(imgFile.absolutePath, options)
+        try{
+            val imgFile = File(filePath)
+            val options = BitmapFactory.Options()
+            options.inSampleSize = 8
+            val myBitmap = if (which == 3) BitmapFactory.decodeFile(imgFile.absolutePath) else BitmapFactory.decodeFile(imgFile.absolutePath, options)
 
-        val byteArrayOutputStream = ByteArrayOutputStream()
-        myBitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream)
-        val byteArray: ByteArray = byteArrayOutputStream.toByteArray()
-        return Base64.encodeToString(byteArray, Base64.DEFAULT)
+            val byteArrayOutputStream = ByteArrayOutputStream()
+            myBitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream)
+            val byteArray: ByteArray = byteArrayOutputStream.toByteArray()
+            return Base64.encodeToString(byteArray, Base64.DEFAULT).trim()
+        }catch (ex:Exception){
+            LogUtils.e(ex)
+        }
+
+        return ""
     }
 
     private fun dialogPickerPhoto() {
@@ -296,7 +304,33 @@ class SelectProcesFragment : Fragment() {
     private fun showFileChooser(pView: Int) {
         val intent = Intent(Intent.ACTION_GET_CONTENT)
         intent.type = "image/*"
-        startActivityForResult(Intent.createChooser(intent, "Selectionnez une image"), pView)
+
+        var carnetFile: File? = null
+        try {
+            carnetFile = createImageFile()
+        } catch (ex: IOException) {
+            LogUtils.e(ex.message)
+        }
+
+        // Continue only if the File was successfully created
+        if (intent.resolveActivity(requireActivity().packageManager) != null) {
+            try {
+                if (carnetFile != null) {
+                    val photoURI: Uri = FileProvider.getUriForFile(
+                        requireActivity().applicationContext,
+                        "com.tkfaart.scrutin.avoteressoubre.fileprovider",
+                        carnetFile
+                    )
+
+                    LogUtils.d("carnetFile "+carnetFile)
+
+                    intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
+                    startActivityForResult(Intent.createChooser(intent, "Selectionnez la photo"), pView)
+                }
+            } catch (ex: Exception) {
+                LogUtils.e(ex.message)
+            }
+        }
     }
 
     private fun dispatchTakePictureIntent() {
@@ -352,16 +386,24 @@ class SelectProcesFragment : Fragment() {
             options.inSampleSize = 8
 
             if (bundleData == null) {
+                endphoto = photoPath
                 _binding!!.imageCharger.setImageBitmap(BitmapFactory.decodeFile(photoPath, options))
             } else {
                 options.inJustDecodeBounds = true
                 options.inPurgeable = true
-                photoPath = UriUtils.uri2File(bundleData).path
-                Log.e("Current Photo TAG", photoPath)
+                endphoto = UriUtils.uri2File(bundleData).absolutePath
+                //endphoto = photoPath
+//                LogUtils.d(requireActivity().localClassName, photoPath)
+//                LogUtils.d(requireActivity().localClassName, endphoto)
+                FileUtils.createOrExistsFile(photoPath)
+                FileUtils.copy(File(endphoto), File(photoPath))
+                endphoto = photoPath
+                Log.e("Current Photo TAG", endphoto)
                 _binding!!.imageCharger.setImageURI(bundleData)
             }
         } catch (ex: Exception) {
             ex.printStackTrace()
+            LogUtils.e(ex)
         }
     }
 
@@ -550,13 +592,13 @@ class SelectProcesFragment : Fragment() {
 
             for (i in 0 until jsonArray.length()) {
                 val personObject = jsonArray.getJSONObject(i)
-                if(personObject.getString("zoneid").toInt() == zoneId!!.toInt()) {
+                //if(personObject.getString("zoneid").toInt() == zoneId!!.toInt()) {
                     val person = CommonModel(
                         personObject.getString("id"),
                         personObject.getString("libel"),
                     )
                     persons.add(person)
-                }
+                //}
             }
         } catch (e: Exception) {
             e.printStackTrace()

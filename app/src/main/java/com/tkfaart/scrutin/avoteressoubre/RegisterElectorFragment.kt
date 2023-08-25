@@ -107,19 +107,20 @@ class RegisterElectorFragment : Fragment() {
         _binding?.btnRegister?.setOnClickListener{
             Log.d(this.javaClass.toString(), "text content ${zoneText!!.text}")
             if(Commons.iS_RESP){
-                if(zoneText!!.text.isNotEmpty()) {
-                    prf!!.setString("zoneId", zoneText.text.toString())
-                    checkMobile(telephone)
-                }else{
-                    SweetAlertDialog(requireContext(), SweetAlertDialog.WARNING_TYPE)
-                        .setTitleText("Erreur")
-                        .setContentText("Le champ de zone à renseignée est vide")
-                        .setConfirmText("Reprendre")
-                        .setConfirmClickListener { sDialog ->
-                            sDialog.dismissWithAnimation()
-                        }.show()
-                }
+//                if(zoneText!!.text.isNotEmpty()) {
+//                    prf!!.setString("zoneId", zoneText.text.toString())
+//                    checkMobile(telephone)
+//                }else{
+//                    SweetAlertDialog(requireContext(), SweetAlertDialog.WARNING_TYPE)
+//                        .setTitleText("Erreur")
+//                        .setContentText("Le champ de zone à renseignée est vide")
+//                        .setConfirmText("Reprendre")
+//                        .setConfirmClickListener { sDialog ->
+//                            sDialog.dismissWithAnimation()
+//                        }.show()
+//                }
             }else{
+            }
                 if(selectedLVote.isNotEmpty()) {
                     prf!!.setString("user_lv", selectedLVote)
                     checkMobile(telephone)
@@ -132,7 +133,6 @@ class RegisterElectorFragment : Fragment() {
                             sDialog.dismissWithAnimation()
                         }.show()
                 }
-            }
         }
 
         val json = Commons.loadJSONFromAsset("lieuvote-sb.json", requireActivity())
@@ -162,13 +162,13 @@ class RegisterElectorFragment : Fragment() {
             }
         }
 
-        if(Commons.iS_RESP){
-            //_binding!!.selectMultiElecteur.visibility = View.GONE
-            //_binding!!.edZone.visibility = View.VISIBLE
-        }else{
+//        if(Commons.iS_RESP){
+//            _binding!!.selectMultiElecteur.visibility = View.GONE
+//            //_binding!!.edZone.visibility = View.VISIBLE
+//        }else{
+//        }
             _binding!!.selectMultiElecteur.visibility = View.VISIBLE
             _binding!!.edZone.visibility = View.GONE
-        }
 
         keyListen = KeyChangeListener.create(activity)
         keyListen!!.setKeyboardListener { isShow, keyboardHeight ->

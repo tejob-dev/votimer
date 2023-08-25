@@ -199,6 +199,7 @@ class SelectForSuiviFragment : Fragment() {
             .setCancelText("Reprendre")
             .setConfirmClickListener { sDialog ->
                 sendMessageToSms()
+                sDialog.dismissWithAnimation()
             }.setCancelClickListener { sDialog ->
                 sDialog.dismissWithAnimation()
             }.show()
@@ -282,13 +283,13 @@ class SelectForSuiviFragment : Fragment() {
 
             for (i in 0 until jsonArray.length()) {
                 val personObject = jsonArray.getJSONObject(i)
-                if(personObject.getString("zoneid").toInt() == zoneId!!.toInt()) {
+                //if(personObject.getString("zoneid").toInt() == zoneId!!.toInt()) {
                     val person = CommonModel(
                         personObject.getString("id"),
                         personObject.getString("libel"),
                     )
                     persons.add(person)
-                }
+                //}
             }
         } catch (e: Exception) {
             e.printStackTrace()

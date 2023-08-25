@@ -17,7 +17,7 @@
         />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:visibility="visible"
+        android:visibility="gone"
         android:id="@+id/fabAlerte"
         android:layout_width="80dp"
         android:layout_height="80dp"

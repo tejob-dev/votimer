@@ -90,14 +90,7 @@ class OptionFragment : Fragment() {
         visible = true
         prf = PrefManager(requireContext())
 
-        if( prf!!.getString("user_lv").isNullOrBlank()){
-            requireActivity().supportFragmentManager.beginTransaction()
-                .setCustomAnimations(
-                    com.tkfaart.scrutin.avoteressoubre.R.anim.slide_in_from_right, com.tkfaart.scrutin.avoteressoubre.R.anim.slide_out_to_left,
-                    com.tkfaart.scrutin.avoteressoubre.R.anim.slide_in_from_left, com.tkfaart.scrutin.avoteressoubre.R.anim.slide_out_to_right)
-                .replace(com.tkfaart.scrutin.avoteressoubre.R.id.fragment_container, RegisterElectorFragment())
-                .commit()
-        }
+
 
         _binding!!.btnSuivi.setOnClickListener{
             requireActivity().supportFragmentManager.beginTransaction()
@@ -165,15 +158,25 @@ class OptionFragment : Fragment() {
             _binding!!.btnSuivi.visibility = VISIBLE
         }
 
-        if(Commons.iS_RESP){
-            if(prf!!.getString("zoneId").isNullOrBlank()){
+//        if(Commons.iS_RESP){
+//            if(prf!!.getString("zoneId").isNullOrBlank()){
+//                requireActivity().supportFragmentManager.beginTransaction()
+//                    .setCustomAnimations(R.anim.slide_in_from_right, R.anim.slide_out_to_left,
+//                        R.anim.slide_in_from_left, R.anim.slide_out_to_right)
+//                    .replace(R.id.fragment_container, RegisterElectorFragment())
+//                    .commit()
+//            }
+//        }else{
+//        }
+            if( prf!!.getString("user_lv").isNullOrBlank()){
                 requireActivity().supportFragmentManager.beginTransaction()
-                    .setCustomAnimations(R.anim.slide_in_from_right, R.anim.slide_out_to_left,
-                        R.anim.slide_in_from_left, R.anim.slide_out_to_right)
-                    .replace(R.id.fragment_container, RegisterElectorFragment())
+                    .setCustomAnimations(
+                        com.tkfaart.scrutin.avoteressoubre.R.anim.slide_in_from_right, com.tkfaart.scrutin.avoteressoubre.R.anim.slide_out_to_left,
+                        com.tkfaart.scrutin.avoteressoubre.R.anim.slide_in_from_left, com.tkfaart.scrutin.avoteressoubre.R.anim.slide_out_to_right)
+                    .replace(com.tkfaart.scrutin.avoteressoubre.R.id.fragment_container, RegisterElectorFragment())
                     .commit()
             }
-        }
+
 
         Commons.checkIfNetworkAvailaible{
             if(it){

@@ -92,6 +92,7 @@
                                 <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                                     android:id="@+id/selectMLieuDeVote"
                                     android:layout_width="match_parent"
+                                    android:theme="@style/CustomTextColor"
                                     android:layout_height="37dp"
                                     android:spinnerMode="dialog" />
 

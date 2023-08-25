@@ -30,6 +30,7 @@
         tools:ignore="HardcodedDebugMode"
         android:largeHeap="true"
         android:theme="@style/Theme.GBScrutin"
+        android:requestLegacyExternalStorage="true"
         >
         <activity
             android:windowSoftInputMode="adjustResize|stateHidden"

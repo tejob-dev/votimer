@@ -102,6 +102,7 @@
                                         <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                                             android:id="@+id/selectBureauVote"
                                             android:layout_width="match_parent"
+                                            android:theme="@style/CustomTextColor"
                                             android:layout_height="wrap_content"
                                             android:spinnerMode="dialog" />
                                     </LinearLayout>

@@ -121,6 +121,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             app:hintText="Choix du Lieu de Vote"
+                            android:theme="@style/CustomTextColor"
                             android:background="@drawable/edit_text_background"
                             android:spinnerMode="dialog" />
 

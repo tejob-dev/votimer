@@ -14,8 +14,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.blankj.utilcode.util.LogUtils
-import com.bumptech.glide.Glide
-import com.bumptech.glide.RequestManager
+
 //import com.androidbuts.multispinnerfilter.KeyPairBoolData
 import com.tkfaart.scrutin.avoteressoubre.databinding.FragmentVotantSenderBinding
 import com.tkfaart.scrutin.avoteressoubre.models.CommonModel
@@ -29,7 +28,6 @@ import org.json.JSONObject
 class SelectForResultFragment : Fragment() {
 
 
-    private var glide: RequestManager? = null
     private var currentLVName: String = ""
     private var currentBVName: String = ""
     private var listNamesLV : MutableList<String>?  = null
@@ -335,13 +333,13 @@ class SelectForResultFragment : Fragment() {
 
             for (i in 0 until jsonArray.length()) {
                 val personObject = jsonArray.getJSONObject(i)
-                if(personObject.getString("zoneid").toInt() == zoneId!!.toInt()) {
+                //if(personObject.getString("zoneid").toInt() == zoneId!!.toInt()) {
                     val person = CommonModel(
                         personObject.getString("id"),
                         personObject.getString("libel"),
                     )
                     persons.add(person)
-                }
+                //}
             }
         } catch (e: Exception) {
             e.printStackTrace()

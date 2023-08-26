@@ -38,8 +38,9 @@ class MainActivity : AppCompatActivity() {
 
         fabAlerte!!.setOnClickListener{
             val ag_tel = prf.getString("ag_tel")
+            val user_lv = prf.getString("user_lv")
             val saveCurrDate = Commons.getDateFormat()
-            var message = "${Commons.CurrCodeScrut}*"+saveCurrDate+"*ALT*${ag_tel}"
+            var message = "${Commons.CurrCodeScrut}*"+saveCurrDate+"*ALT*${ag_tel}*${user_lv}"
 
             Commons.smsSendMessage(message, Commons.phoneNumber, this)
             //println("message sended enc "+encode)

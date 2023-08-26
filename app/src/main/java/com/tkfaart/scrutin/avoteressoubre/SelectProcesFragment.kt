@@ -570,13 +570,13 @@ class SelectProcesFragment : Fragment() {
         _binding!!.selectBureauVote.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(adapterView: AdapterView<*>, view: View, position: Int, l: Long) {
 
-                if(firstOpenPass){
+                //if(firstOpenPass){
                     val BvModel = newBvList[position]
                     Log.e(this.javaClass.simpleName, "Counter bv "+BvModel.toString())
                     currentBV = "${BvModel.id}"
                     currentBVName = "${BvModel.libel}"
-                }
-                firstOpenPass = true
+//                }
+//                firstOpenPass = true
             }
 
             override fun onNothingSelected(arg0: AdapterView<*>) {

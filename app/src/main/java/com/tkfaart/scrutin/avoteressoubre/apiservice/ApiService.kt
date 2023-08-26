@@ -9,7 +9,7 @@ import retrofit2.http.POST
 interface ApiService {
 
     // region SYNCHRONIZATION
-    @POST("exportpvonline")
+    @POST("/api/common/apis/all/items")
     fun passImagePvOnline(@Body producteurModel: ImagePvModel): Call<ImagePvModel>
 
 }

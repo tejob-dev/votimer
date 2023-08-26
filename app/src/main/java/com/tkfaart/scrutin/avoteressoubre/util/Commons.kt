@@ -151,7 +151,7 @@ class Commons {
 
         val MY_PERMISSIONS_REQUEST_SEND_SMS = 1
         val ElectorJsonName = "electorat-sb.json"
-        val CurrCodeScrut = "SO41"
+        val CurrCodeScrut = "SC153"
 
         private fun checkForSmsPermission(ctx: Activity) {
             if (ActivityCompat.checkSelfPermission(
